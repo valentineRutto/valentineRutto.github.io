@@ -14,8 +14,9 @@ html {
 body {
   font-size: 1.6rem;
   font-family: "Open Sans", sans-serif;
-  color: #4089a6;
-  background-color: #ffffff;
+  background-color: rgba(1, 29, 87, 0.3); 
+color: rgba(1, 29, 87, 0.3);;
+/*  background-color:antiquewhite;*/
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
