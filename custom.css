@@ -5,12 +5,26 @@ text-align: center;
 
 #bg{
 height:100%;
-                    width:100%;
-    background-image:url(images/planetrise.jpg);
-    background-size:cover; background-repeat:no-repeat;
-    background-position:center;
+width:100%;
+background-image:url(ocean.jpg);
+background-size:cover;
+background-repeat:no-repeat;
+background-position:center;
 }
 
 #btn{
 text-align: center;
+}
+li{
+    background-color: rgba(53, 64, 48, 0.5); 
+color: rgba(53, 64, 48, 0.5);
+display: inline;
+float: right;
+}
+a{
+display: block;
+    width: 100px;
+}
+li:hover{
+background-color: black;
 }
