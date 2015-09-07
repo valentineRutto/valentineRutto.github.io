@@ -1,12 +1,23 @@
-h1{
-color:white;
-text-align: center;
+#intro{
+font-size: 20px;
+	padding: 260px 0px 30px 0px;
+ text-align: center;
+    color: white;
+  
+       background-color: rgba(53, 64, 48, 0.8); 
+color: rgba(53, 64, 48, 0.7);
+display: inline;
+    
+}
+h3{
+color: white;
 }
 
 #bg{
 height:100%;
 width:100%;
-background-image:url(ocean.jpg);
+    background-color: black;
+/*background-image:url(images/africa.jpg);*/
 background-size:cover;
 background-repeat:no-repeat;
 background-position:center;
@@ -23,8 +34,9 @@ float: right;
 }
 a{
 display: block;
-    width: 100px;
+width: 150px;
+    font-size: 30px
 }
 li:hover{
-background-color: black;
+background-color: white;
 }
