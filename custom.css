@@ -1,6 +1,16 @@
+h1{
+color:white;
+text-align: center;
+}
+
 #bg{
-background-image: url(images/africa.jpg);
-    background-size: cover;
-    height: 600px;
-width: 600px;
+height:100%;
+                    width:100%;
+    background-image:url(images/planetrise.jpg);
+    background-size:cover; background-repeat:no-repeat;
+    background-position:center;
+}
+
+#btn{
+text-align: center;
 }
