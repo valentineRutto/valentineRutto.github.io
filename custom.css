@@ -1,42 +1,46 @@
-#intro{
+.intro{
 font-size: 20px;
-	padding: 260px 0px 30px 0px;
- text-align: center;
-    color: white;
-  
-       background-color: rgba(53, 64, 48, 0.8); 
+/*	padding: 260px 0px 30px 0px;*/
+    background-color: rgba(53, 64, 48, 0.8); 
 color: rgba(53, 64, 48, 0.7);
 display: inline;
+    text-align: center;
+    color: white;
+    width:inherit;
+    border:3px solid #FF3C26;
+    padding: 10px;
     
-}
-h3{
-color: white;
 }
 
 #bg{
-height:100%;
+height:680px;
 width:100%;
-    background-color: black;
-/*background-image:url(images/africa.jpg);*/
+background-image:url(images/purple.jpg);
 background-size:cover;
 background-repeat:no-repeat;
 background-position:center;
 }
-
+p{
+ 
+}
 #btn{
 text-align: center;
+    padding:580px ;
 }
+
 li{
-    background-color: rgba(53, 64, 48, 0.5); 
-color: rgba(53, 64, 48, 0.5);
+background-color: rgba(53, 64, 48, 0.5); 
 display: inline;
 float: right;
 }
+
 a{
-display: block;
+     color:white;
+    padding-right: 12px;
+padding-left: 12px;
 width: 150px;
-    font-size: 30px
+    font-size: 30px;
 }
 li:hover{
-background-color: white;
+background-color: black;
 }
