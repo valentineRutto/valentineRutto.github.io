@@ -5,10 +5,13 @@ text-align: center;
 /*color: rgba(53, 64, 48, 0.7);*/
 display: inline;
 color: white;
+ 
     }
 #align{
-    margin-top: 200px;
+    margin-left: auto; 
+    margin-right: auto;
 }
+
 /*
 #border{
   width:300px;
@@ -19,13 +22,14 @@ padding: 10px;
 */
 
 #bg{
-height:675px;
+height:100%;
 width:100%;
+position: relative;
 background-image:url(images/africa.jpg);
 background-size:cover;
 background-repeat:no-repeat;
 background-position:center;
-     background-attachment: fixed;
+background-attachment: fixed;
 }
 
 #btn{
