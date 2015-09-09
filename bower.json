@@ -1,0 +1,21 @@
+{
+  "name": "mdl",
+  "version": "0.0.0",
+  "homepage": "https://github.com/valentineRutto/valentineRutto.github.io",
+  "authors": [
+    "valentinerutto <rutto28@gmail.com>"
+  ],
+  "description": "mdl files",
+  "main": "mdl",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "material-design-lite": "~1.0.4"
+  }
+}
