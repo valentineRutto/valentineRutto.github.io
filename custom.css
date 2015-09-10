@@ -22,18 +22,39 @@ padding: 10px;
 */
 
 #bg{
-height:675px;
+padding:300px 0;
+height:400px;
 width:100%;
+    background-color:#90a4ae  ;
 position: relative;
+/*background-image:url(images/lake.jpg);*/
+background-size:cover;
+background-repeat:no-repeat;
+background-position:center;
+background-attachment: fixed;
+}
+.text{
+position: absolute;
+    text-align: center;
+}
+
+#bg2{
+height:50px;
+width:100%;
 background-image:url(images/africa.jpg);
 background-size:cover;
 background-repeat:no-repeat;
 background-position:center;
 background-attachment: fixed;
 }
-
+#cont{
+width:100%;
+    height: inherit;
+}
 #btn{
-float: right;
+margin: 90px;
+text-align: center;
+    
 }
 
 li{
@@ -43,12 +64,111 @@ float: right;
 }
 
 a{
-     color:white;
+     color:#6a1b9a ;
     padding-right: 12px;
 padding-left: 12px;
 width: 150px;
-    font-size: 30px;
+    font-size: 20px;
 }
 li:hover{
-background-color: black;
+background-color: white;
+    color: white;
 }
+
+
+.cd-nav-trigger {
+  transition: transform 0.5s;
+}
+.navigation-is-open .cd-nav-trigger {
+  /* rotate trigger when navigation becomes visible */
+  transform: rotate(180deg);
+}
+.cd-nav-trigger .cd-nav-icon::before, 
+.cd-nav-trigger .cd-nav-icon:after {
+  /* upper and lower lines of the menu icon */
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s, width 0.5s, top 0.3s;
+}
+.cd-nav-trigger .cd-nav-icon::before {
+  transform-origin: right top;
+  transform: translateY(-6px);
+}
+.cd-nav-trigger .cd-nav-icon::after {
+  transform-origin: right bottom;
+  transform: translateY(6px);
+}
+.navigation-is-open .cd-nav-trigger .cd-nav-icon::after,
+.navigation-is-open .cd-nav-trigger .cd-nav-icon::before {
+  /* animate arrow --> from hamburger to arrow */
+  width: 50%;
+  transition: transform 0.5s, width 0.5s;
+}
+.navigation-is-open .cd-nav-trigger .cd-nav-icon::before {
+  transform: rotate(45deg);
+}
+.navigation-is-open .cd-nav-trigger .cd-nav-icon::after {
+  transform: rotate(-45deg);
+}
+.cd-nav-trigger circle {
+  /* circle border animation */
+  transition: stroke-dashoffset 0.4s 0s;
+}
+.navigation-is-open .cd-nav-trigger circle {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 0.4s 0.3s;
+}
+
+.card {
+  position: relative;
+padding-bottom:50%;
+    
+  width: 100%;
+  text-align: center;
+  margin: 0px auto;
+  color:black;
+}
+
+.card__front,
+.card__back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.card__front,
+.card__back {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: -webkit-transform 0.3s;
+          transition: transform 0.3s;
+}
+
+.card__front {
+  background-color:darkcyan;
+}
+
+.card__back {
+  background-color: white;
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+.card.effect__hover:hover .card__front {
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+
+.card.effect__hover:hover .card__back {
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
+}
+.section {
+  margin-bottom: 40px;
+ display: block;
+  background-color: white;
+  padding: 20px 0;
+
+}
+

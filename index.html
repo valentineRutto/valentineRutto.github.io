@@ -2,7 +2,7 @@
   <html>
     <head>
       <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+<!--      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>-->
         
       <link type="text/css" rel="stylesheet" href="custom.css"/>
             
@@ -12,49 +12,124 @@
      
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<!--        materialdesign lit-->
+<!--        materialdesign lite-->
+<!--
         <link rel="stylesheet" href="/node_modules/material-design-lite/material.min.css">
 <script src="/node_modules/material-design-lite/material.min.js"></script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+-->
+        <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+  	
       </head>
 
     <body>
- <div id="bg">
+        <div class="container" id="cont">
+<!-- <div id="bg">-->
+     <main> <h1>Valentine Rutto</h1>       
+            <p>Frontend | Android | Developer</p></main>
+     <a href="#cd-nav" class="cd-nav-trigger">Menu 
+	<span class="cd-nav-icon"></span>
+ 
+	<svg x="0px" y="0px" width="54px" height="54px" viewBox="0 0 54 54">
+		<circle fill="transparent" stroke="#66788f" stroke-width="1" cx="27" cy="27" r="25" stroke-dasharray="157 157" stroke-dashoffset="157"></circle>
+	</svg>
+</a>
      
-        <div id="btn">
+<div id="cd-nav" class="cd-nav">
+	<div class="cd-navigation-wrapper">
+		<div class="cd-half-block">
+ 
+			<nav>
+				<ul class="cd-primary-nav">
+					<li><a href="#0" class="selected">Know Me</a></li>
+                    <li><a href="#0" class="selected">My Work</a></li>
+					
+				</ul>
+			</nav>
+		</div>
+		
+		<div class="cd-half-block">
+			<address>
+				<ul class="cd-contact-info">
+					<li><a href="mailto:rutto28@gmail.com">rutto28@gmail.com</a></li>
+<li>+254728057123</li>
+                    <li>Nairobi,Kenya</li>
+				</ul>
+			</address>
+		</div> 
+	</div> 
+     </div>
             
-    <div class="fixed-action-btn" style="top: 45px; right: 24px;">
-    <a class="btn-floating btn-large indigo">
-      <i class="large material-icons">list</i>
-    </a>
-    <ul>
- 
-      <li><a class="btn-floating yellow"><i class="material-icons">grade</i></i></a></li>
-               <li><a class="btn-floating green"><i class="material-icons">phone</i></i></a></li>
-      <li><a class="btn-floating blue"><i class="material-icons">email</i></a></li>
-    </ul>
-  </div>
-             </div>
-     
 
-    <div class="row" >
-      <div class="col s12 m5">
-        <div class="card-panel teal">
-          <span class="white-text" id="intro">
-              <p>Valentine Rutto</p>       
-            <p>Frontend | Android | Developer</p>   </span>
-        </div>
+<!--        </div>-->
+           <hr><h2 class="text"id="about">About Me</h2>
+            <div class="row">
+                      <div class="col s12">        
+                </div></div>
+           <div class="row"> 
+      <div class="col s4">
+        <!-- Promo Content 1 goes here -->
+     <div class="section">
+        <div class="section__content clearfix">
+          <div class="card effect__hover">
+            <div class="card__front">
+              <span><img src="images/blue.jpg"></span>
+            </div>
+            <div class="card__back">
+              <span>Create what matters , personalized websites, really cool apps with user experience in mind.   </span>
+            </div>
+            </div>
+          </div>
       </div>
-    </div>
-        </div>
-        
- 
-    
+         
+      </div>
+      <div class="col s4">
+        <!-- Promo Content 2 goes here -->
+              <div class="section">
+        <div class="section__content clearfix">
+          <div class="card effect__hover">
+            <div class="card__front">
+              <span><img src="images/blue.jpg"></span>
+            </div>
+            <div class="card__back">
+              <span>Name: ValentineRutto<br>
+              Gender:Female<br>
+              School:Moringa School<br>
+              qoutes:<em>not until we are lost,<br>do we begin to find ourselves</em></span>
+            </div>
+            </div>
+          </div>
+          </div></div>
+      <div class="col s4">
+        <!-- Promo Content 3 goes here -->
+                        <div class="section">
+        <div class="section__content clearfix">
+          <div class="card effect__hover">
+            <div class="card__front">
+              <span><img src="images/blue.jpg"></span>
+            </div>
+            <div class="card__back">
+              <span>Name: ValentineRutto<br>
+              Gender:Female<br>
+              School:Moringa School<br>
+              qoutes:<em>not until we are lost,<br>do we begin to find ourselves</em></span>
+            </div>
+            </div>
+          </div>
+      </div>
+      </div>
 
+    </div>
+            </div>     
+    
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script type="text/javascript" src="js/materialize.min.js"></script>
       <script type="text/javascript" src="js/fab.js"></script>
+<script src="js/modernizr.js"></script>
+        <script src="js/main.js"></script> <!-- Resource jQuery -->
         
     </body>
 <script>

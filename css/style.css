@@ -4,63 +4,34 @@ Primary style
 
 -------------------------------- */
 *, *::after, *::before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
 html {
   font-size: 62.5%;
 }
-
-body {
-  font-size: 1.6rem;
-  font-family: "Open Sans", sans-serif;
-  background-color: rgba(1, 29, 87, 0.3); 
-color: rgba(1, 29, 87, 0.3);;
-/*  background-color:antiquewhite;*/
+html * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  font-size: 1.6rem;
+  font-family: "Open Sans", sans-serif;
+  color: #243040;
+  background-color: #ffffff;
+}
+
+body, html {
+  /* prevent horizontal scrolling */
+  overflow-x: hidden;
+}
+
 a {
-  color: #283040;
+  color: #9cb3a8;
   text-decoration: none;
-}
-
-h1 {
-  color: #ffffff;
-  margin-bottom: 1em;
-  font-size: 2.2rem;
-}
-@media only screen and (min-width: 768px) {
-  h1 {
-    font-size: 4.4rem;
-    font-weight: 300;
-  }
-}
-
-/* -------------------------------- 
-
-Patterns - reusable parts of our design
-
--------------------------------- */
-.cd-btn {
-  display: inline-block;
-  padding: 1.4em 1.6em;
-  margin-bottom: 2em;
-  border-radius: 50em;
-  background-color: #283040;
-  color: #ffffff;
-  font-weight: bold;
-  font-size: 1.3rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-}
-.no-touch .cd-btn:hover {
-  background-color: #323c50;
-}
-.cd-about .cd-btn {
-  background-color: #4089a6;
 }
 
 /* -------------------------------- 
@@ -68,153 +39,83 @@ Patterns - reusable parts of our design
 Main Components 
 
 -------------------------------- */
-body::after, body::before {
-  /* these are the 2 half blocks which cover the content once the animation is triggered */
-  content: '';
-  height: 50vh;
-  width: 100%;
-  position: fixed;
-  left: 0;
-  background-color: #ffffff;
-  z-index: 1;
-  /* Force Hardware Acceleration */
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+main {
+  position: relative;
+  z-index: 2;
+  /* fix bug on iOS */
+  height: 100vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 200px 5%;
+  background-color: #9cb3a8;
+  /* Force Hardware Acceleration in WebKit */
   -webkit-transform: translateZ(0);
   -moz-transform: translateZ(0);
   -ms-transform: translateZ(0);
   -o-transform: translateZ(0);
   transform: translateZ(0);
-  -webkit-transition: -webkit-transform 0.4s 0.4s;
-  -moz-transition: -moz-transform 0.4s 0.4s;
-  transition: transform 0.4s 0.4s;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition: -webkit-transform 0.7s;
+  -moz-transition: -moz-transform 0.7s;
+  transition: transform 0.7s;
+  -webkit-transition-timing-function: cubic-bezier(0.91, 0.01, 0.6, 0.99);
+  -moz-transition-timing-function: cubic-bezier(0.91, 0.01, 0.6, 0.99);
+  transition-timing-function: cubic-bezier(0.91, 0.01, 0.6, 0.99);
 }
-body::before {
-  top: 0;
-  -webkit-transform: translateY(-100%);
-  -moz-transform: translateY(-100%);
-  -ms-transform: translateY(-100%);
-  -o-transform: translateY(-100%);
-  transform: translateY(-100%);
-}
-body::after {
-  bottom: 0;
-  -webkit-transform: translateY(100%);
-  -moz-transform: translateY(100%);
-  -ms-transform: translateY(100%);
-  -o-transform: translateY(100%);
-  transform: translateY(100%);
-}
-body.page-is-changing::after, body.page-is-changing::before {
-  -webkit-transform: translateY(0);
-  -moz-transform: translateY(0);
-  -ms-transform: translateY(0);
-  -o-transform: translateY(0);
-  transform: translateY(0);
-  -webkit-transition: -webkit-transform 0.4s 0s;
-  -moz-transition: -moz-transform 0.4s 0s;
-  transition: transform 0.4s 0s;
-}
-
-main {
-  height: 100vh;
-  padding: 10px;
+main h1, main p {
   text-align: center;
 }
-main .cd-main-content {
-  position: relative;
-  height: calc(100vh - 20px);
-}
-main .cd-main-content > div {
-  height: 100%;
-  overflow: hidden;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-}
-main .cd-main-content::after, main .cd-main-content::before {
-  /* these are the 2 gradient overlay at the top and bottom of the .cd-main-content - to indicate that you can scroll */
-  content: '';
-  position: absolute;
-  left: 0;
-  height: 50px;
-  width: 100%;
-}
-main .cd-main-content::before {
-  top: 0;
-}
-main .cd-main-content::after {
-  bottom: 0;
-}
-main .cd-main-content.cd-index {
-  /* .cd-main-content basic style - index page */
-  background-color: #4089a6;
-  /* vertically center its content */
-  display: table;
-  width: 100%;
-}
-main .cd-main-content.cd-index > div {
-  /* vertically center the content inside the .cd-index */
-  display: table-cell;
-  vertical-align: middle;
-}
-main .cd-main-content.cd-index::after {
-  background-color: rgba(64, 137, 166, 0);
-  background-image: -webkit-linear-gradient(bottom, #4089a6, rgba(64, 137, 166, 0));
-  background-image: linear-gradient(to top,#4089a6, rgba(64, 137, 166, 0));
-}
-main .cd-main-content.cd-index::before {
-  background-color: rgba(64, 137, 166, 0);
-  background-image: -webkit-linear-gradient(top, #4089a6, rgba(64, 137, 166, 0));
-  background-image: linear-gradient(to bottom,#4089a6, rgba(64, 137, 166, 0));
-}
-main .cd-main-content.cd-about {
-  /* .cd-main-content basic style - about page */
-  background-color: #283040;
-}
-main .cd-main-content.cd-about > div {
-  padding-top: 50px;
-}
-main .cd-main-content.cd-about::after {
-  background-color: rgba(40, 48, 64, 0);
-  background-image: -webkit-linear-gradient(bottom, #283040, rgba(40, 48, 64, 0));
-  background-image: linear-gradient(to top,#283040, rgba(40, 48, 64, 0));
-}
-main .cd-main-content.cd-about::before {
-  background-color: rgba(40, 48, 64, 0);
-  background-image: -webkit-linear-gradient(top, #283040, rgba(40, 48, 64, 0));
-  background-image: linear-gradient(to bottom,#283040, rgba(40, 48, 64, 0));
+main h1 {
+  font-size: 2.6rem;
+  margin-bottom: 1em;
 }
 main p {
-  width: 90%;
-  max-width: 768px;
-  margin: 3em auto;
-  font-size: 1.4rem;
+  font-family: "Merriweather", serif;
+  color: #d6dfdb;
+  max-width: 450px;
+  margin: 0 auto;
   line-height: 1.6;
-  color: #535966;
-  text-align: left;
+}
+.navigation-is-open main {
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -o-transform: translateX(100%);
+  transform: translateX(100%);
 }
 @media only screen and (min-width: 768px) {
   main {
-    padding: 20px;
+    padding: 250px 10%;
   }
-  main .cd-main-content {
-    height: calc(100vh - 40px);
-  }
-  main.cd-index > div {
-    padding-top: 200px;
-  }
-  main.cd-index > div {
-    padding-top: 50px;
+  main h1 {
+    font-size: 3.6rem;
   }
   main p {
-    font-size: 1.8rem;
-    line-height: 2;
+    font-size: 2rem;
   }
 }
 
-.cd-cover-layer {
-  /* layer that covers the content when the animation is triggered */
+.cd-nav-trigger {
   position: fixed;
+  z-index: 3;
+  left: 5%;
+  top: 20px;
+  height: 54px;
+  width: 54px;
+  background-color: #243040;
+  border-radius: 50%;
+  /* image replacement */
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+  -webkit-transition: -webkit-transform 0.5s;
+  -moz-transition: -moz-transform 0.5s;
+  transition: transform 0.5s;
+}
+.cd-nav-trigger .cd-nav-icon {
+  /* icon created in CSS */
+  position: absolute;
   left: 50%;
   top: 50%;
   bottom: auto;
@@ -224,116 +125,283 @@ main p {
   -ms-transform: translateX(-50%) translateY(-50%);
   -o-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
-  height: calc(100% - 20px);
-  width: calc(100% - 20px);
-  opacity: 0;
-  visibility: hidden;
-  background-color: #4089a6;
-  -webkit-transition: opacity 0.4s 0.4s, visibility 0s 0.8s;
-  -moz-transition: opacity 0.4s 0.4s, visibility 0s 0.8s;
-  transition: opacity 0.4s 0.4s, visibility 0s 0.8s;
+  width: 22px;
+  height: 2px;
+  background-color: #ffffff;
 }
-.cd-about .cd-cover-layer {
-  background-color: #283040;
+.cd-nav-trigger .cd-nav-icon::before, .cd-nav-trigger .cd-nav-icon:after {
+  /* upper and lower lines of the menu icon */
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  /* Force Hardware Acceleration in WebKit */
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition: -webkit-transform 0.5s, width 0.5s, top 0.3s;
+  -moz-transition: -moz-transform 0.5s, width 0.5s, top 0.3s;
+  transition: transform 0.5s, width 0.5s, top 0.3s;
 }
-.page-is-changing .cd-cover-layer {
-  opacity: 1;
-  visibility: visible;
-  -webkit-transition: opacity 0.3s 0s, visibility 0s 0s;
-  -moz-transition: opacity 0.3s 0s, visibility 0s 0s;
-  transition: opacity 0.3s 0s, visibility 0s 0s;
+.cd-nav-trigger .cd-nav-icon::before {
+  -webkit-transform-origin: right top;
+  -moz-transform-origin: right top;
+  -ms-transform-origin: right top;
+  -o-transform-origin: right top;
+  transform-origin: right top;
+  -webkit-transform: translateY(-6px);
+  -moz-transform: translateY(-6px);
+  -ms-transform: translateY(-6px);
+  -o-transform: translateY(-6px);
+  transform: translateY(-6px);
 }
-@media only screen and (min-width: 768px) {
-  .cd-cover-layer {
-    height: calc(100% - 40px);
-    width: calc(100% - 40px);
+.cd-nav-trigger .cd-nav-icon::after {
+  -webkit-transform-origin: right bottom;
+  -moz-transform-origin: right bottom;
+  -ms-transform-origin: right bottom;
+  -o-transform-origin: right bottom;
+  transform-origin: right bottom;
+  -webkit-transform: translateY(6px);
+  -moz-transform: translateY(6px);
+  -ms-transform: translateY(6px);
+  -o-transform: translateY(6px);
+  transform: translateY(6px);
+}
+.no-touch .cd-nav-trigger:hover .cd-nav-icon::after {
+  top: 2px;
+}
+.no-touch .cd-nav-trigger:hover .cd-nav-icon::before {
+  top: -2px;
+}
+.cd-nav-trigger svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.cd-nav-trigger circle {
+  /* circle border animation */
+  -webkit-transition: stroke-dashoffset 0.4s 0s;
+  -moz-transition: stroke-dashoffset 0.4s 0s;
+  transition: stroke-dashoffset 0.4s 0s;
+}
+.navigation-is-open .cd-nav-trigger {
+  /* rotate trigger when navigation becomes visible */
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.navigation-is-open .cd-nav-trigger .cd-nav-icon::after,
+.navigation-is-open .cd-nav-trigger .cd-nav-icon::before {
+  /* animate arrow --> from hamburger to arrow */
+  width: 50%;
+  -webkit-transition: -webkit-transform 0.5s, width 0.5s;
+  -moz-transition: -moz-transform 0.5s, width 0.5s;
+  transition: transform 0.5s, width 0.5s;
+}
+.navigation-is-open .cd-nav-trigger .cd-nav-icon::before {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.navigation-is-open .cd-nav-trigger .cd-nav-icon::after {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.no-touch .navigation-is-open .cd-nav-trigger:hover .cd-nav-icon::after, .no-touch .navigation-is-open .cd-nav-trigger:hover .cd-nav-icon::before {
+  top: 0;
+}
+.navigation-is-open .cd-nav-trigger circle {
+  stroke-dashoffset: 0;
+  -webkit-transition: stroke-dashoffset 0.4s 0.3s;
+  -moz-transition: stroke-dashoffset 0.4s 0.3s;
+  transition: stroke-dashoffset 0.4s 0.3s;
+}
+@media only screen and (min-width: 1170px) {
+  .cd-nav-trigger {
+    top: 40px;
   }
 }
 
-.cd-loading-bar {
-  /* this is the loding bar - visible while switching from one page to the following one */
+.cd-nav {
   position: fixed;
-  z-index: 2;
-  left: 50%;
-  top: 50%;
-  height: 2px;
-  width: 90%;
-  background-color: #4089a6;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #243040;
   visibility: hidden;
-  -webkit-transition: visibility 0s 0.4s, -webkit-transform 0.4s 0s ease-in;
-  -moz-transition: visibility 0s 0.4s, -moz-transform 0.4s 0s ease-in;
-  transition: visibility 0s 0.4s, transform 0.4s 0s ease-in;
-  /* Force Hardware Acceleration */
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+  -webkit-transition: visibility 0s 0.7s;
+  -moz-transition: visibility 0s 0.7s;
+  transition: visibility 0s 0.7s;
+}
+.cd-nav .cd-navigation-wrapper {
+  /* all navigation content */
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 40px 5% 40px calc(5% + 80px);
+  /* Force Hardware Acceleration in WebKit */
   -webkit-transform: translateZ(0);
   -moz-transform: translateZ(0);
   -ms-transform: translateZ(0);
   -o-transform: translateZ(0);
   transform: translateZ(0);
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  -moz-transform: translateX(-50%) translateY(-50%);
-  -ms-transform: translateX(-50%) translateY(-50%);
-  -o-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+  -webkit-transition: -webkit-transform 0.7s;
+  -moz-transition: -moz-transform 0.7s;
+  transition: transform 0.7s;
+  -webkit-transition-timing-function: cubic-bezier(0.86, 0.01, 0.77, 0.78);
+  -moz-transition-timing-function: cubic-bezier(0.86, 0.01, 0.77, 0.78);
+  transition-timing-function: cubic-bezier(0.86, 0.01, 0.77, 0.78);
 }
-.cd-about .cd-loading-bar {
-  background-color: #283040;
+.navigation-is-open .cd-nav {
+  visibility: visible;
+  -webkit-transition: visibility 0s 0s;
+  -moz-transition: visibility 0s 0s;
+  transition: visibility 0s 0s;
 }
-.cd-about .cd-loading-bar::before {
-  background-color: #4089a6;
+.navigation-is-open .cd-nav .cd-navigation-wrapper {
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0);
+  -webkit-transition: -webkit-transform 0.5s;
+  -moz-transition: -moz-transform 0.5s;
+  transition: transform 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.82, 0.01, 0.77, 0.78);
+  -moz-transition-timing-function: cubic-bezier(0.82, 0.01, 0.77, 0.78);
+  transition-timing-function: cubic-bezier(0.82, 0.01, 0.77, 0.78);
 }
-.cd-loading-bar::before {
-  /* this is the progress bar inside the loading bar */
+.cd-nav h2 {
+  position: relative;
+  margin-bottom: 1.7em;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #080b0f;
+  text-transform: uppercase;
+}
+.cd-nav h2::after {
+  /* bottom separation line */
   content: '';
   position: absolute;
   left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  background-color: #283040;
-  /* Force Hardware Acceleration */
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-transform: translateZ(0);
-  -moz-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  -o-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-transform: scaleX(0);
-  -moz-transform: scaleX(0);
-  -ms-transform: scaleX(0);
-  -o-transform: scaleX(0);
-  transform: scaleX(0);
-  -webkit-transform-origin: left center;
-  -moz-transform-origin: left center;
-  -ms-transform-origin: left center;
-  -o-transform-origin: left center;
-  transform-origin: left center;
+  bottom: -20px;
+  height: 1px;
+  width: 60px;
+  background-color: currentColor;
 }
-.page-is-changing .cd-loading-bar {
-  visibility: visible;
-  -webkit-transform: translateX(-50%) translateY(-50%) scaleX(0.3);
-  -moz-transform: translateX(-50%) translateY(-50%) scaleX(0.3);
-  -ms-transform: translateX(-50%) translateY(-50%) scaleX(0.3);
-  -o-transform: translateX(-50%) translateY(-50%) scaleX(0.3);
-  transform: translateX(-50%) translateY(-50%) scaleX(0.3);
-  -webkit-transition: visibility 0s 0.3s, -webkit-transform 0.4s 0.4s;
-  -moz-transition: visibility 0s 0.3s, -moz-transform 0.4s 0.4s;
-  transition: visibility 0s 0.3s, transform 0.4s 0.4s;
+.cd-nav .cd-primary-nav {
+  margin-top: 60px;
 }
-.page-is-changing .cd-loading-bar::before {
-  -webkit-transform: scaleX(1);
-  -moz-transform: scaleX(1);
-  -ms-transform: scaleX(1);
-  -o-transform: scaleX(1);
-  transform: scaleX(1);
-  -webkit-transition: -webkit-transform 0.8s 0.8s ease-in;
-  -moz-transition: -moz-transform 0.8s 0.8s ease-in;
-  transition: transform 0.8s 0.8s ease-in;
+.cd-nav .cd-primary-nav li {
+  margin: 1.6em 0;
 }
-@media only screen and (min-width: 768px) {
-  .cd-loading-bar {
-    width: calc(100% - 40px);
+.cd-nav .cd-primary-nav a {
+  font-family: "Merriweather", serif;
+  font-size: 2.4rem;
+  color: rgba(255, 255, 255, 0.3);
+  display: inline-block;
+}
+.cd-nav .cd-primary-nav a.selected {
+  color: #ffffff;
+}
+.no-touch .cd-nav .cd-primary-nav a:hover {
+  color: #ffffff;
+}
+.cd-nav .cd-contact-info {
+  margin-top: 80px;
+}
+.cd-nav .cd-contact-info li {
+  font-family: "Merriweather", serif;
+  margin-bottom: 1.5em;
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.3);
+}
+.cd-nav .cd-contact-info a {
+  color: #ffffff;
+}
+.cd-nav .cd-contact-info span {
+  display: block;
+}
+.cd-nav .cd-contact-info li, .cd-nav .cd-contact-info a, .cd-nav .cd-contact-info span {
+  font-size: 1.6rem;
+}
+@media only screen and (min-width: 1170px) {
+  .cd-nav .cd-navigation-wrapper {
+    padding: 62px 20%;
   }
+  .cd-nav .cd-navigation-wrapper::after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+  .cd-nav .cd-half-block {
+    width: 50%;
+    float: left;
+  }
+  .cd-nav .cd-primary-nav {
+    margin-top: 0;
+  }
+  .cd-nav h2 {
+    font-size: 1.5rem;
+    margin-bottom: 5.6em;
+  }
+  .cd-nav .cd-primary-nav li {
+    margin: 2em 0;
+  }
+  .cd-nav .cd-primary-nav a {
+    font-size: 4.4rem;
+  }
+  .cd-nav .cd-contact-info {
+    margin-top: 120px;
+    text-align: right;
+  }
+  .cd-nav .cd-contact-info li {
+    margin-bottom: 2.4em;
+  }
+  .cd-nav .cd-contact-info li, .cd-nav .cd-contact-info a, .cd-nav .cd-contact-info span {
+    font-size: 2rem;
+  }
+}
+
+.no-js main {
+  height: auto;
+  overflow: visible;
+}
+
+.no-js .cd-nav {
+  position: static;
+  visibility: visible;
+}
+.no-js .cd-nav .cd-navigation-wrapper {
+  height: auto;
+  overflow: visible;
+  padding: 100px 5%;
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0);
 }
