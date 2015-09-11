@@ -64,8 +64,8 @@ text-align: center;
 .card {
   position: relative;
 padding-bottom:50%;
-    
-  width: 100%;
+    height: 200px;
+  width: 300px;
   text-align: center;
   margin: 0px auto;
   color:black;
@@ -74,10 +74,11 @@ padding-bottom:50%;
 .card__front,
 .card__back {
   position: absolute;
+    text-align: center;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 200px;
 }
 
 .card__front,
@@ -89,7 +90,9 @@ padding-bottom:50%;
 }
 
 .card__front {
-  background-color:darkcyan;
+  background-color:cadetblue;
+    color:white;
+font-size: 30px;
 }
 
 .card__back {
