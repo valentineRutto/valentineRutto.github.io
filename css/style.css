@@ -47,7 +47,7 @@ main {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   padding: 200px 5%;
-  background-color: #9cb3a8;
+  background-color: #6699CC ;
   /* Force Hardware Acceleration in WebKit */
   -webkit-transform: translateZ(0);
   -moz-transform: translateZ(0);
@@ -67,15 +67,16 @@ main h1, main p {
   text-align: center;
 }
 main h1 {
-  font-size: 2.6rem;
+  font-size: 3.6rem;
   margin-bottom: 1em;
 }
 main p {
   font-family: "Merriweather", serif;
-  color: #d6dfdb;
+  color: white;
   max-width: 450px;
   margin: 0 auto;
   line-height: 1.6;
+    font-size: 5.6rem;
 }
 .navigation-is-open main {
   -webkit-transform: translateX(100%);
@@ -321,14 +322,14 @@ main p {
 .cd-nav .cd-primary-nav a {
   font-family: "Merriweather", serif;
   font-size: 2.4rem;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.5);
   display: inline-block;
 }
 .cd-nav .cd-primary-nav a.selected {
   color: #ffffff;
 }
 .no-touch .cd-nav .cd-primary-nav a:hover {
-  color: #ffffff;
+  color: lightblue;
 }
 .cd-nav .cd-contact-info {
   margin-top: 80px;
