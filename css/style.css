@@ -47,7 +47,7 @@ main {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   padding: 200px 5%;
-  background-color: #6699CC ;
+/*  background-color: #6699CC ;*/
   /* Force Hardware Acceleration in WebKit */
   -webkit-transform: translateZ(0);
   -moz-transform: translateZ(0);

@@ -55,6 +55,11 @@ background-attachment: fixed;
 #cont{
 width:100%;
     height: inherit;
+    background-image:url(images/look.jpg);
+background-size:cover;
+background-repeat:no-repeat;
+background-position:center;
+background-attachment: fixed;
 }
 #btn{
 margin: 90px;
