@@ -55,7 +55,7 @@ background-attachment: fixed;
 #cont{
 width:100%;
     height:inherit;
-    background-image:url(images/legs.png);
+    background-image:url(images/flower.jpg);
 background-size:cover;
 background-repeat:no-repeat;
 background-position:center;
@@ -94,12 +94,13 @@ text-align: center;
 }
 
 .card__front {
-  background-image:url(images/wire.jpg);
-    color:white;
+/*  background-image:url(images/wire.jpg);*/
+    color:#e57373;
 font-size: 30px;
 }
 
 .card__back {
+    color: #009688;
   background-color: white;
   -webkit-transform: rotateY(-180deg);
           transform: rotateY(-180deg);
