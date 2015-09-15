@@ -246,7 +246,8 @@ main p {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color:#009688 ;
+background-color: rgba(108, 112, 126, 0.3); 
+/*    #009688 ;*/
 /*    #243040*/
   visibility: hidden;
   -webkit-transition: visibility 0s 0.7s;

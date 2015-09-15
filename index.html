@@ -10,21 +10,22 @@
 <script src="/node_modules/material-design-lite/material.min.js"></script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 -->
-     <link type="text/css" rel="stylesheet" href="custom.css"/>
+     <link type="text/css" rel="stylesheet" href="custom.css"/><link type="text/css" rel="stylesheet" href="css/animations.css"/>
         <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
 	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->  
          <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
       </head>
     <body>
-        
+        <div class="animatedParent" data-sequence='500'>
         <div class="container" id="cont">
 <!-- <div id="bg">-->
-     <main> <h1>Valentine Rutto</h1>       
-            <p>Web | Mobile | Developer</p>
-  
-         <div  style="text-align:center;padding-bottom:0px 100px;"><a href="#about"><img src="images/mouse_click.png"></a></div>
-            </main>
+            <div  style="background-color: rgba(96, 98, 90, 0.6); ">
+     <main> <h1 class="animated bounceInDown" data-id='1'>Valentine Rutto</h1>       
+            <p class="animated bounceInDown"  data-id='2'>Web | Mobile | Developer</p>
+         
+         <div class="animated bounceInDown"  data-id='3'style="text-align:center;padding-bottom:0px 100px;"><a href="#about"><img src="images/mouse_click.png"></a></div>
+            </main></div>
      <a href="#cd-nav" class="cd-nav-trigger">Menu 
 	<span class="cd-nav-icon"></span>
  
@@ -48,9 +49,22 @@
 		<div class="cd-half-block">
 			<address>
 				<ul class="cd-contact-info">
+                    <li>
+                    <div class="form-style-6">
+<h1>Contact Us</h1>
+<form>
+<input type="text" name="field1" placeholder="Your Name" />
+<input type="email" name="field2" placeholder="Email Address" />
+<textarea name="field3" placeholder="Type your Message"></textarea>
+<input type="submit" value="Send" />
+</form>
+</div>
+<!--
 					<li><a href="mailto:rutto28@gmail.com">rutto28@gmail.com</a></li>
                     <li>Nairobi,Kenya</li>
-				</ul>
+-->
+                    </li>
+                </ul>
 			</address>
 		</div> 
 	</div> 
@@ -61,6 +75,7 @@
             
             <div style="background-color:rgba(140, 128, 121, 0.7); ;"> <hr id="hr"> <h2 id="about">About Me</h2>
            <div class="row" > 
+               <div  class="animated bounceInDown"  data-id='4'>
    <div class="col-md-4">
         <!-- Promo Content 1 goes here -->
      <div class="section">
@@ -75,8 +90,8 @@
             </div>
           </div>
       </div>
-         
-      </div>
+        </div></div>
+               
    <div class="col-md-4">
         <!-- Promo Content 2 goes here -->
               <div class="section">
@@ -114,7 +129,8 @@
                 <img src="images/link.jpg">
                 <img src="images/git.png">
                 <img src="images/email.png">
-            </div>
+            </div></div>
+            
                 <hr id="hr">
             <h4 style="text-align:center;color:white;background-color:#009688; margin:10px;"> Copyright | 2015 <br> ValentineRutto | designs - Web | Mobile | Developer.<br> All Rights Reserved.</h4>
             
@@ -126,7 +142,7 @@
                   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script><script type="text/javascript" src="js/css3-animate-it.js"></script>
 <script src="js/modernizr.js"></script>
         <script src="js/main.js"></script> <!-- Resource jQuery -->
     <script src="js/bootstrap.min.js"></script>
