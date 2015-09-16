@@ -40,6 +40,7 @@ Main Components
 
 -------------------------------- */
 main {
+    background-color: rgba(0,0,0,0.8) ; 
   position: relative;
   z-index: 2;
   /* fix bug on iOS */
@@ -246,7 +247,7 @@ main p {
   left: 0;
   height: 100%;
   width: 100%;
-background-color: rgba(108, 112, 126, 0.3); 
+background-color: yellow; 
 /*    #009688 ;*/
 /*    #243040*/
   visibility: hidden;
