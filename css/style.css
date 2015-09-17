@@ -70,6 +70,7 @@ main h1, main p {
 main h1 {
   font-size: 3.6rem;
   margin-bottom: 1em;
+ 
 }
 main p {
   font-family: "Merriweather", serif;
@@ -92,7 +93,7 @@ main p {
   }
   main h1 {
     font-size: 3.6rem;
-      color: #e57373 ;
+      color: white ;
   }
   main p {
     font-size: 2rem;
@@ -102,11 +103,11 @@ main p {
 .cd-nav-trigger {
   position: fixed;
   z-index: 3;
-  left: 5%;
+  right: 5%;
   top: 20px;
   height: 54px;
   width: 54px;
-  background-color:#e57373 ;
+  background-color:#ffcc00;
 /*    #243040*/
   border-radius: 50%;
   /* image replacement */
@@ -236,7 +237,7 @@ main p {
 }
 @media only screen and (min-width: 1170px) {
   .cd-nav-trigger {
-    top: 40px;
+    top: 30px;
   }
 }
 
@@ -247,7 +248,7 @@ main p {
   left: 0;
   height: 100%;
   width: 100%;
-background-color: yellow; 
+background-color: purple; 
 /*    #009688 ;*/
 /*    #243040*/
   visibility: hidden;
