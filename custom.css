@@ -21,12 +21,11 @@ padding: 10px;
 }
 */
 
-#bg{
-padding:300px 0;
-height:300px;
+#bg2{
+height:100%;
 width:100%;
 position: relative;
-background-image:url(images/wire.jpg);
+background-image:url(images/me.jpg);
 background-size:cover;
 background-repeat:no-repeat;
 background-position:center;
@@ -46,7 +45,17 @@ text-align: center;
 #bg2{
 height:50px;
 width:100%;
-background-image:url(images/africa.jpg);
+background-image:url(images/me.jpg);
+background-size:cover;
+background-repeat:no-repeat;
+background-position:center;
+background-attachment: fixed;
+}
+#img2{
+height:400px;
+width:100%;
+background-image:url(images/img2.jpg);
+    background-color: #673AB7;
 background-size:cover;
 background-repeat:no-repeat;
 background-position:center;
@@ -74,6 +83,7 @@ text-align: center;
   text-align: center;
   margin: 0px auto;
   color:black;
+    background-color: #512DA8;
 }
 
 .card__front,
@@ -117,8 +127,8 @@ font-size: 30px;
 .section {
   margin-bottom: 40px;
  display: block;
-  background-color: white;
-  padding: 20px 0;
+background-color:rgba(0,0,0,0.8);
+padding: 20px 0;
 
 }
 
