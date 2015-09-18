@@ -58,15 +58,7 @@ color: cyan;
 text-align: center; 
 }
   
-#bg2{
-height:50px;
-width:100%;
-background-image:url(images/me.jpg);
-background-size:cover;
-background-repeat:no-repeat;
-background-position:center;
-background-attachment: fixed;
-}
+
 #img2{
 height:400px;
 width:100%;
@@ -91,59 +83,4 @@ text-align: center;
  
 }
 
-.card {
-  position: relative;
-    height: 200px;
-  width: 300px;
-  text-align: center;
-  margin: 0px auto;
-  color:black;
-    background-color: #512DA8;
-}
-
-.card__front,
-.card__back {
-  position: absolute;
-text-align: center;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 200px;
-}
-.card__front,
-.card__back {
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  -webkit-transition: -webkit-transform 0.3s;
-          transition: transform 0.3s;
-}
-
-.card__front {
-/*  background-image:url(images/wire.jpg);*/
-    color:#e57373;
-font-size: 30px;
-}
-
-.card__back {
-    color: #009688;
-  background-color: white;
-  -webkit-transform: rotateY(-180deg);
-          transform: rotateY(-180deg);
-}
-.card.effect__hover:hover .card__front {
-  -webkit-transform: rotateY(-180deg);
-          transform: rotateY(-180deg);
-}
-
-.card.effect__hover:hover .card__back {
-  -webkit-transform: rotateY(0);
-          transform: rotateY(0);
-}
-.section {
-  margin-bottom: 40px;
- display: block;
-background-color:rgba(0,0,0,0.8);
-padding: 20px 0;
-
-}
 

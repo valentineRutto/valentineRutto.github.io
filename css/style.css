@@ -249,7 +249,7 @@ main p {
   left: 0;
   height: 100%;
   width: 100%;
-background-color: black; 
+background-color: gainsboro; 
 /*    #009688 ;*/
 /*    #243040*/
   visibility: hidden;
@@ -325,6 +325,7 @@ background-color: black;
 }
 .cd-nav .cd-primary-nav li {
   margin: 1.6em 0;
+    background-color: gray;
 }
 .cd-nav .cd-primary-nav a {
   font-family: "Merriweather", serif;
@@ -336,7 +337,7 @@ background-color: black;
   color: #ffffff;
 }
 .no-touch .cd-nav .cd-primary-nav a:hover {
-  color: lightblue;
+  color: #ffcc00;
 }
 .cd-nav .cd-contact-info {
   margin-top: 80px;
