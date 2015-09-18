@@ -4,7 +4,7 @@ text-align: center;
 /* background-color: rgba(55, 69, 80, 0.6); ; */
 /*color: rgba(53, 64, 48, 0.7);*/
 display: inline;
-color: white;
+color: #212121;
  
     }
 #align{
@@ -21,11 +21,17 @@ padding: 10px;
 }
 */
 
-#bg2{
-height:100%;
-width:100%;
+wrapper{
+background-color: rgba(0,0,0,0.9);
+    color: white;
+    text-align: center;
+}
+
+#bg{
+height:300px;
+
 position: relative;
-background-image:url(images/me.jpg);
+background-image:url(images/media.jpg);
 background-size:cover;
 background-repeat:no-repeat;
 background-position:center;
@@ -54,8 +60,7 @@ background-attachment: fixed;
 #img2{
 height:400px;
 width:100%;
-background-image:url(images/img2.jpg);
-    background-color: #673AB7;
+background-color: whitesmoke;
 background-size:cover;
 background-repeat:no-repeat;
 background-position:center;
