@@ -1,2 +1,2 @@
 # valentineRutto.github.io
-personal website 
+Online resume | personal website 
