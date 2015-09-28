@@ -6,10 +6,13 @@ display: inline;
 color: #ffcc00;
     font-family: GillSans, Calibri, Trebuchet, sans-serif;
   text-shadow: 4px 4px 4px #aaa;
-    }#intro2{
+    }
+#intro2{
 font-size: 30px;
 text-align: center;
-background-color: rgba(0,0,0,0.5);
+background-image: url(images/port.png);
+    background-attachment: fixed;
+    background-size: contain;
 display: inline;
 color: #ffcc00;
     font-family: GillSans, Calibri, Trebuchet, sans-serif;
