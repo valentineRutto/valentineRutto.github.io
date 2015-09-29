@@ -13,8 +13,13 @@
             <script src="https://maps.googleapis.com/maps/api/js"></script>
         <script>
   function initialize() {
-   var mapCanvas=document.getElementById('map');
-    var map = new google.maps.Map(mapCanvas);
+    var mapCanvas = document.getElementById('map');
+    var mapOptions = {
+      center: new google.maps.LatLng(-1.3080755, 36.7334538),
+      zoom: 8,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    var map = new google.maps.Map(mapCanvas, mapOptions);
   }
 </script>
 <!--        endofmaps-->
@@ -50,7 +55,7 @@
     <li class="slide-container">
 		<div class="slide">
 			<a href="https://play.google.com/store/apps/details?id=com.nganga.spinnintv&hl=en"><img src="images/spin.png" />
-                <span style="color:teal;">EDM for the soul</span></a><br>Listen to electro dance music from spinningtv youtube channel
+                <span style="color:teal;text-size:20px;">EDM for the soul</span></a><br>Listen to electro dance music from spinningtv youtube channel
         </div>
 		<div class="nav">
 			<label for="img-6" class="prev">&#x2039;</label>
@@ -61,7 +66,8 @@
     <input type="radio" name="radio-btn" id="img-2" />
     <li class="slide-container">
         <div class="slide">
-        <a href="https://play.google.com/store/apps/details?id=com.moringaschool.shortstories&hl=en">  <img src="images/short.png" />Download app<span style="color:teal;">The Anthologies</span><br>most intresting african anthologies that gets you hooked<br></a>
+        <a href="https://play.google.com/store/apps/details?id=com.moringaschool.shortstories&hl=en">  <img src="images/short.png" /><span >The Anthologies</span><br>most intresting african anthologies that gets you hooked<br>Download app</a>
+        <a href="https://play.google.com/store/apps/details?id=com.moringaschool.shortstories&hl=en">  <img src="images/short.png"><span style="color:teal;">The Anthologies</span><br>most intresting african anthologies that gets you hooked</a>
         </div>
 		<div class="nav">
 			<label for="img-1" class="prev">&#x2039;</label>
