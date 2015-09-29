@@ -9,7 +9,16 @@
         <link rel="stylesheet" type="text/css" href="css/demo.css" />
         <link rel="stylesheet" type="text/css" href="css/component.css" />        <link rel="stylesheet" type="text/css" href="css/slider.css" />
         <link href='http://fonts.googleapis.com/css?family=Raleway:200,400,800|Londrina+Outline' rel='stylesheet' type='text/css'>
-        
+<!--        googlemapsapi-->
+            <script src="https://maps.googleapis.com/maps/api/js"></script>
+        <script>
+  function initialize() {
+   var mapCanvas=document.getElementById('map');
+    var map = new google.maps.Map(mapCanvas);
+  }
+</script>
+<!--        endofmaps-->
+
         	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
        
 	</head>
@@ -106,22 +115,26 @@
 <!--                  endslider-->
                 
 
-
+            </div>
 <!--footer with contacts-->
-<div class="container" style="background-image: url(images/port.png);
+<div style="background-image: url(images/port.png);
     background-attachment: fixed;
-    background-size: cover;">
-   
+    background-size: cover;
+           ">
+   <div>
 <p>Connect</p>
         <a href="https://github.com/valentinerutto">  <img src="images/git.png"></a>
                 <img src="images/link.png">
         <a href="https://plus.google.com/+valentinerutto/about"><img src="images/g+.png"></a>
     </div>
-   <div class="col s6"> 
-      <h5><img src="images/loc.png">Nairobi,Kenya<br>
+            </div>
+   <div id="map" style="float:center;width: 500px;
+    height: 400px;
+    background-color: #CCC;"> 
+      <h5>Nairobi,Kenya<br>
        C.2015</h5>
     </div>  
-</div>
+        </div>
          
       <!--Import jQuery before materialize.js-->
                   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
