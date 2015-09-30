@@ -8,15 +8,12 @@ color: #ffcc00;
   text-shadow: 4px 4px 4px #aaa;
     }
 #intro2{
-font-size: 30px;
+font-size: 20px;
 text-align: center;
 background-image: url(images/port.png);
     background-attachment: fixed;
-    background-size: contain;
-display: inline;
-color: #ffcc00;
-    font-family: GillSans, Calibri, Trebuchet, sans-serif;
-  text-shadow: 2px 2px 2px #aaa;
+    background-size: cover;
+
     }
 #align{
     margin-left: auto; 
