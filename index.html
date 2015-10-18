@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
         <title>ValentineRutto</title>
         <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+            <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
             <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
         <link rel="stylesheet" type="text/css" href="css/demo.css" />
         <link rel="stylesheet" type="text/css" href="css/component.css" />        <link rel="stylesheet" type="text/css" href="css/slider.css" />
@@ -142,36 +143,21 @@
  
     
 <!--          form  -->
-   
-	<div style="float:right;  margin:0px auto;">
-    <form action="" method="post" class="basic-grey">
-  
-    <label>
-        <span style="color:white;">Your Name :</span><br>
-        <input id="name" style="padding-right:200px;padding-top:15px;"type="text" name="name" placeholder="Your Full Name" />
-    </label><br>
-    
-    <label>
-        <span style="color:white;">Your Email :</span><br>
-        <input id="email" style="padding-right:200px;padding-top:15px;" type="email" name="email" placeholder="Valid Email Address" />
-    </label><br>
-    
-    <label>
-        <span style="color:white;">Message :</span><br>
-        <textarea id="message" style="padding-right:200px;padding-top:25px;" name="message" placeholder="Your Message "></textarea>
-    </label><br>
-     <label>
-        <span  style="color:white;">Subject :</span><br>
-         <select name="selection">
-        <option value="Hire me">Hire me</option>
-        <option value="General Question">General Question</option>
-        </select>
-    </label> <br>   
-     <label>
-        <span>&nbsp;</span> 
-        <input type="button" class="button" value="Send" style="width:100px;border-radius:30px;color:white;background:#26a69a;" /> 
-    </label> <br>   
-</form></div>        
+   <form class="pure-form">
+    <fieldset class="pure-group">
+        <input type="text" class="pure-input-1-2" placeholder="Username">
+        <input type="text" class="pure-input-1-2" placeholder="Password">
+        <input type="email" class="pure-input-1-2" placeholder="Email">
+    </fieldset>
+
+    <fieldset class="pure-group">
+        <input type="text" class="pure-input-1-2" placeholder="A title">
+        <textarea class="pure-input-1-2" placeholder="Textareas work too"></textarea>
+    </fieldset>
+
+    <button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Sign in</button>
+</form>
+	
     
    <div id="map" style="float:center;width: 500px;text-align:center;
     height: 300px;
