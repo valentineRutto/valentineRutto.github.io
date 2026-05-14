@@ -4,9 +4,10 @@
     var colors = ['72,35,68', '43,81,102', '66,152,103', '250,178,67', '224,33,48'];
 
     // Main
-    initHeader();
-    addListeners();
-    initAnimation();
+    if(initHeader()) {
+        addListeners();
+        initAnimation();
+    }
 
     function initHeader() {
         width = window.innerWidth;
@@ -14,18 +15,23 @@
         target = {x: 0, y: height};
 
         largeHeader = document.getElementById('large-header');
+        canvas = document.getElementById('demo-canvas');
+        if(!largeHeader || !canvas) return false;
+
         largeHeader.style.height = height+'px';
 
-        canvas = document.getElementById('demo-canvas');
         canvas.width = width;
         canvas.height = height;
         ctx = canvas.getContext('2d');
+        if(!ctx) return false;
 
         // create particles
         triangles = [];
         for(var x = 0; x < 480; x++) {
             addTriangle(x*10);
         }
+
+        return true;
     }
 
     function addTriangle(delay) {
