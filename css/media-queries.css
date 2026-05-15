@@ -279,13 +279,18 @@
       float: none;
       width: 100%;
    }
-   #contact input,
+   #contact input[type="text"],
+   #contact input[type="email"],
    #contact textarea,
    #contact select {
-     	margin-bottom: 6px;    	
+      margin-bottom: 6px;
       width: 100%;
    }
    #contact button.submit { margin: 30px 0 24px 0; }
+   #contact .footer-widgets {
+      padding-left: 0;
+      text-align: center;
+   }
    #message-warning, #message-success {
       width: 100%;
       margin-left: 0;

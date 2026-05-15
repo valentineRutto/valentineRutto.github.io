@@ -249,6 +249,37 @@ ul#nav li.current a { color: #11ABB0; }
    padding-bottom: 24px;
    border-bottom: 1px solid #E8E8E8;
 }
+.history-tree {
+   position: relative;
+   padding-left: 34px;
+}
+.history-tree:before {
+   content: '';
+   position: absolute;
+   top: 8px;
+   bottom: 8px;
+   left: 9px;
+   width: 2px;
+   background: #E8E8E8;
+}
+.history-node {
+   position: relative;
+   margin-bottom: 34px;
+}
+.history-node:last-child { margin-bottom: 0; }
+.history-marker {
+   position: absolute;
+   top: 6px;
+   left: -34px;
+   width: 20px;
+   height: 20px;
+   background: #fff;
+   border: 4px solid #11ABB0;
+   border-radius: 100%;
+}
+.history-content p {
+   margin-bottom: 0;
+}
 #resume .info {
    font: 16px/24px 'librebaskerville-italic', serif;
    color: #6E7881;
@@ -822,7 +853,8 @@ call-to-action .button {
 	float: left;
    width: 26%;
 }
-#contact input,
+#contact input[type="text"],
+#contact input[type="email"],
 #contact textarea,
 #contact select {
    padding: 18px 20px;
@@ -860,6 +892,15 @@ call-to-action .button {
 #contact span.required {
 	color: #11ABB0;
 	font-size: 13px;
+}
+#contact .footer-widgets {
+   padding-left: 28px;
+}
+#contact .widget_contact {
+   margin-top: 8px;
+}
+#contact .address {
+   line-height: 30px;
 }
 #message-warning, #message-success {
    display: none;
