@@ -8,13 +8,12 @@
    TOC:
    a. General Styles
    b. Header Styles
-   c. About Section
-   d. Resume Section
-   e. Portfolio Section
-   f. Call To Action Section
-   g. Testimonials Section
-   h. Contact Section
-   i. Footer
+   c. Resume Section
+   d. Portfolio Section
+   e. Call To Action Section
+   f. Testimonials Section
+   g. Contact Section
+   h. Footer
 
 ===================================================================== */
 
@@ -33,9 +32,7 @@ header {
    height: 800px;
    min-height: 500px;
    width: 100%;
-   background: #161415 url(../images/bg.png) no-repeat top center;
-   background-size: cover !important;
-	-webkit-background-size: cover !important;
+   background: #161415;
    text-align: center;
    overflow: hidden;
 }
@@ -92,6 +89,22 @@ header .banner-text h3 {
 header .banner-text h3 span,
 header .banner-text h3 a {
    color: #fff;
+}
+header .banner-text .intro {
+   color: #D5D5D5;
+   font: 17px/1.8em 'opensans-regular', sans-serif;
+   margin: 18px auto 0 auto;
+   max-width: 760px;
+   text-shadow: 0px 1px 2px rgba(0, 0, 0, .5);
+}
+header .banner-text .download {
+   margin: 22px auto 0 auto;
+}
+header .banner-text .download .button {
+   margin-bottom: 0;
+}
+header .banner-text .download .button i {
+   margin-right: 12px;
 }
 header .banner-text hr {
    width: 60%;
@@ -202,56 +215,7 @@ ul#nav li.current a { color: #11ABB0; }
 
 
 /* ------------------------------------------------------------------ */
-/* c. About Section
-/* ------------------------------------------------------------------ */
-
-#about {
-   background: #2B2B2B;
-   padding-top: 96px;
-   padding-bottom: 66px;
-   overflow: hidden;
-}
-
-#about a, #about a:visited  { color: #fff; }
-#about a:hover, #about a:focus { color: #11ABB0; }
-
-#about h2 {
-   font: 22px/30px 'opensans-bold', sans-serif;
-   color: #fff;
-   margin-bottom: 12px;
-}
-#about p {
-   line-height: 30px;
-   color: #7A7A7A;
-}
-#about .profile-pic {
-   position: relative;
-   width: 120px;
-   height: 120px;
-   border-radius: 100%;
-}
-#about .contact-details { width: 41.66667%; }
-#about .download {
-   width: 58.33333%;
-   padding-top: 6px;
-}
-#about .main-col { padding-right: 5%; }
-#about .download .button {
-   margin-top: 6px;
-   background: #444;
-}
-#about .download .button:hover {
-   background: #fff;
-   color: #2B2B2B;
-}
-#about .download .button i {
-   margin-right: 15px;
-   font-size: 20px;
-}
-
-
-/* ------------------------------------------------------------------ */
-/* d. Resume Section
+/* c. Resume Section
 /* ------------------------------------------------------------------ */
 
 #resume {
@@ -280,10 +244,41 @@ ul#nav li.current a { color: #11ABB0; }
 #resume .header-col { padding-top: 9px; }
 #resume .main-col { padding-right: 10%; }
 
-.education, .work {
+.work {
    margin-bottom: 48px;
    padding-bottom: 24px;
    border-bottom: 1px solid #E8E8E8;
+}
+.history-tree {
+   position: relative;
+   padding-left: 34px;
+}
+.history-tree:before {
+   content: '';
+   position: absolute;
+   top: 8px;
+   bottom: 8px;
+   left: 9px;
+   width: 2px;
+   background: #E8E8E8;
+}
+.history-node {
+   position: relative;
+   margin-bottom: 34px;
+}
+.history-node:last-child { margin-bottom: 0; }
+.history-marker {
+   position: absolute;
+   top: 6px;
+   left: -34px;
+   width: 20px;
+   height: 20px;
+   background: #fff;
+   border: 4px solid #11ABB0;
+   border-radius: 100%;
+}
+.history-content p {
+   margin-bottom: 0;
 }
 #resume .info {
    font: 16px/24px 'librebaskerville-italic', serif;
@@ -858,7 +853,8 @@ call-to-action .button {
 	float: left;
    width: 26%;
 }
-#contact input,
+#contact input[type="text"],
+#contact input[type="email"],
 #contact textarea,
 #contact select {
    padding: 18px 20px;
@@ -896,6 +892,15 @@ call-to-action .button {
 #contact span.required {
 	color: #11ABB0;
 	font-size: 13px;
+}
+#contact .footer-widgets {
+   padding-left: 28px;
+}
+#contact .widget_contact {
+   margin-top: 8px;
+}
+#contact .address {
+   line-height: 30px;
 }
 #message-warning, #message-success {
    display: none;

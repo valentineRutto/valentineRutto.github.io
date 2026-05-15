@@ -46,17 +46,6 @@
       letter-spacing: 1.5px;
    }
 
-
-   /* About Section
-   ------------------------------------------------------------------- */
-   #about .profile-pic {
-      width: 564px;
-      height: 1200px;
-      margin-left: 12px;
-   }
-   #about .contact-details { width: 50%; }
-   #about .download { width: 50%; }
-
    /* Resume Section
    ------------------------------------------------------------------- */
    #resume h1 { font: 16px/24px 'opensans-bold', sans-serif; }
@@ -212,18 +201,6 @@
     /* scrolldown link */
    header .scrolldown { display: none; }
 
-
-   /* About Section
-   -------------------------------------------------------------------- */
-   #about .profile-pic { display: none; }
-   #about .download .button {
-      width: 100%;
-      text-align: center;
-      padding: 15px 20px;
-   }
-   #about .main-col { padding-right: 30px; }
-
-
    /* Resume Section
    --------------------------------------------------------------------- */
    #resume .header-col {
@@ -302,13 +279,18 @@
       float: none;
       width: 100%;
    }
-   #contact input,
+   #contact input[type="text"],
+   #contact input[type="email"],
    #contact textarea,
    #contact select {
-     	margin-bottom: 6px;    	
+      margin-bottom: 6px;
       width: 100%;
    }
    #contact button.submit { margin: 30px 0 24px 0; }
+   #contact .footer-widgets {
+      padding-left: 0;
+      text-align: center;
+   }
    #message-warning, #message-success {
       width: 100%;
       margin-left: 0;
