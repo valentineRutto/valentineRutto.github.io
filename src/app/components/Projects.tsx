@@ -3,6 +3,8 @@ import { Box, Container, Typography, Stack, Card, CardContent, CardMedia, Button
 import { motion } from 'motion/react';
 import { OpenInNew, GitHub } from '@mui/icons-material';
 import divine from '../../imports/divine.png';
+import zen from '../../imports/zen.png';
+import rick from '../../imports/rick.png';
 
 
 const projects = [
@@ -15,20 +17,20 @@ const projects = [
     github: "https://github.com/valentineRutto/DivineDataGPT"
   },
   {
-    title: "Global Connect Platform",
-    description: "A cross-platform social networking app designed to handle 1M+ DAU. Features include WebRTC video calls, instant messaging, and AI-driven content moderation.",
-    image: "https://images.unsplash.com/photo-1663427929917-333d88949f7a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnbG9iYWwlMjBjb25uZWN0aXZpdHklMjBuZXR3b3JrJTIwZWFydGh8ZW58MXx8fHwxNzc4NzY3MjM4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: ["Flutter", "Dart", "Firebase", "WebRTC"],
+    title: "Rick and Morty Location Explorer",
+    description: "A cross-platform  app consuming the Rick and Morty API to display locations, characters, and episodes. Built with Flutter, it features a clean UI, infinite scrolling, and detailed character profiles.",
+    image: rick,
+    tags: ["Flutter", "Dart", "Offline-first","Responsive UI","Rest API","clean architecture"],
     live: "#",
-    github: "#"
+    github: "https://github.com/valentineRutto/RickandMortyLocationExplorer"
   },
   {
-    title: "HealthTrack Pro UI",
-    description: "A modern health and fitness tracking UI. Focused on sleek animations, dark mode capabilities, and seamless user experiences on iOS and Android.",
-    image: "https://images.unsplash.com/photo-1581287053822-fd7bf4f4bfec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBVSSUyMHNjcmVlbiUyMG1vZGVybnxlbnwxfHx8fDE3Nzg3NjcyMzh8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: ["Swift", "Kotlin", "UI/UX"],
-    live: "#",
-    github: "#"
+    title: "Zen Timer App",
+    description: "An ambient Pomodoro style countdown and count up timer with relaxing sounds and customizable themes. Lets users add the focus tasks, and set work intervals , select focus music.",
+    image: zen,
+    tags: ["TypeScript", "VibeCoded","Gemini", "AI"],
+    live: "https://zen-timer-focus.vercel.app/",
+    github: "https://github.com/valentineRutto/ZenTimer"
   }
 ];
 
