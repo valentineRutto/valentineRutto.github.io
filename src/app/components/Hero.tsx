@@ -3,6 +3,7 @@ import { Box, Container, Typography, Button, Stack, Avatar } from '@mui/material
 import { motion } from 'motion/react';
 import { ArrowForward, Download } from '@mui/icons-material';
 import profilePicture from '../../imports/ppic.jpg';
+import resumePdf from '../../imports/ValentineRutto_CV.pdf';
 
 export function Hero() {
   const containerVariants = {
@@ -94,6 +95,9 @@ export function Hero() {
                 <Button 
                   variant="outlined" 
                   size="large" 
+                  component="a"
+                  href={resumePdf}
+                  download="ValentineRutto_CV.pdf"
                   startIcon={<Download />}
                   sx={{ px: 4, py: 1.5, borderColor: 'rgba(255,255,255,0.2)', color: 'white', '&:hover': { borderColor: 'white', bgcolor: 'rgba(255,255,255,0.05)' } }}
                 >
