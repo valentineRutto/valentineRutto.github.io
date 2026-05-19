@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Container, Typography, IconButton, Stack } from '@mui/material';
-import { GitHub, LinkedIn, Twitter, Email } from '@mui/icons-material';
+import { GitHub, LinkedIn, Email } from '@mui/icons-material';
 
 export function Footer() {
   return (
@@ -17,16 +17,32 @@ export function Footer() {
           </Box>
           
           <Stack direction="row" spacing={2}>
-            <IconButton color="inherit" aria-label="GitHub">
+            <IconButton
+              color="inherit"
+              aria-label="GitHub"
+              component="a"
+              href="https://github.com/valentinerutto"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <GitHub />
             </IconButton>
-            <IconButton color="inherit" aria-label="LinkedIn">
+            <IconButton
+              color="inherit"
+              aria-label="LinkedIn"
+              component="a"
+              href="https://www.linkedin.com/in/valentinerutto/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <LinkedIn />
             </IconButton>
-            <IconButton color="inherit" aria-label="Twitter">
-              <Twitter />
-            </IconButton>
-            <IconButton color="inherit" aria-label="Email">
+            <IconButton
+              color="inherit"
+              aria-label="Email"
+              component="a"
+              href="mailto:vruttoapps@gmail.com"
+            >
               <Email />
             </IconButton>
           </Stack>
