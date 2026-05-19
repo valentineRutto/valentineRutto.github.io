@@ -2,15 +2,17 @@ import React from 'react';
 import { Box, Container, Typography, Stack, Card, CardContent, CardMedia, Button, Chip } from '@mui/material';
 import { motion } from 'motion/react';
 import { OpenInNew, GitHub } from '@mui/icons-material';
+import divine from '../../imports/divine.png';
+
 
 const projects = [
   {
-    title: "NexPay Fintech App",
-    description: "A comprehensive fintech mobile application featuring real-time transactions, biometric security, and crypto integrations. Built with React Native and Redux.",
-    image: "https://images.unsplash.com/photo-1559526324-593bc073d938?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmaW50ZWNoJTIwbW9iaWxlJTIwYXBwbGljYXRpb24lMjBvbiUyMHNtYXJ0cGhvbmV8ZW58MXx8fHwxNzc4NzY3MjM3fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: ["React Native", "TypeScript", "Node.js"],
+    title: "Divine Reflection APP",
+    description: "An AI-powered emotional Bible companion that suggests scripture and reflections based on how you feel. Features include sentiment analysis, personalized devotionals with prayer, Full bible , Bible verse recommendations, and notes sections.",
+    image: divine,
+    tags: ["Android", "Kotlin", "AI [Hugging Face]", "Jetpack Compose","Offline-First with RoomDB","FTS Search"],
     live: "#",
-    github: "#"
+    github: "https://github.com/valentineRutto/DivineDataGPT"
   },
   {
     title: "Global Connect Platform",
@@ -80,7 +82,13 @@ export function Projects() {
                     height="240"
                     image={project.image}
                     alt={project.title}
-                    sx={{ transition: 'transform 0.5s ease' }}
+                    sx={{
+                      height: 240,
+                      objectFit: 'contain',
+                      objectPosition: 'center',
+                      bgcolor: 'rgba(255,255,255,0.04)',
+                      transition: 'transform 0.5s ease'
+                    }}
                   />
                 </Box>
                 <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', p: 3 }}>
