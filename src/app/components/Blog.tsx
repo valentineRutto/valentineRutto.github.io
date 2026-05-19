@@ -9,7 +9,8 @@ const blogPosts = [
     excerpt: "Exploring the evolution from clean architecture to modern reactive patterns in iOS and Android development.",
     date: "May 10, 2026",
     image: "https://images.unsplash.com/photo-1610563166150-b34df4f3bcd6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2Z0d2FyZSUyMGVuZ2luZWVyaW5nJTIwYmxvZ3xlbnwxfHx8fDE3Nzg5NTM3OTN8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    category: "Architecture"
+    category: "Architecture",
+    url: "https://medium.com/p/f2225f1d528b"
   },
   {
     title: "Optimizing React Native Performance",
@@ -98,6 +99,11 @@ export function Blog() {
                   </Typography>
                   <Button 
                     variant="text" 
+                    component={post.url ? 'a' : 'button'}
+                    href={post.url}
+                    target={post.url ? '_blank' : undefined}
+                    rel={post.url ? 'noopener noreferrer' : undefined}
+                    disabled={!post.url}
                     endIcon={<ArrowForward />} 
                     sx={{ alignSelf: 'flex-start', px: 0, '&:hover': { bgcolor: 'transparent', color: 'primary.light' } }}
                   >
