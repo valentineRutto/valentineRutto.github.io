@@ -2,13 +2,14 @@ import React from 'react';
 import { Box, Container, Typography, Card, CardContent, CardMedia, Chip, Button, Stack } from '@mui/material';
 import { motion } from 'motion/react';
 import { ArrowForward } from '@mui/icons-material';
+import myLogo from '../../imports/mylogo.jpeg';
 
 const blogPosts = [
   {
     title: "Effective Search in RoomDB: FTS vs LIKE",
     excerpt: "Comparing the performance and use cases of Full-Text Search (FTS) and LIKE queries in RoomDB for Android development.",
     date: "2026",
-    image: "https://images.unsplash.com/photo-1610563166150-b34df4f3bcd6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2Z0d2FyZSUyMGVuZ2luZWVyaW5nJTIwYmxvZ3xlbnwxfHx8fDE3Nzg5NTM3OTN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    image: myLogo,
     category: "RoomDB, Kotlin, FTS,LIKE ,Android",
     url: "https://medium.com/p/f2225f1d528b"
   },
@@ -16,7 +17,7 @@ const blogPosts = [
     title: "Seamless Camera and Media Access on Android 14+ and Legacy Versions",
     excerpt: "This post provides a code overview for capturing an image, saving it to storage, and retrieving it on devices running Android 13+, 14+ as well as older versions.",
     date: "2025",
-    image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2RlJTIwc2NyZWVufGVufDF8fHx8MTc3ODk1Mzc5Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+    image: myLogo,
     category: "Android, Kotlin,Media,Camera",
     url: "https://medium.com/proandroiddev/seamless-camera-and-media-access-on-android-14-and-legacy-versions-543d86ac5939"
   },
@@ -24,7 +25,7 @@ const blogPosts = [
     title: "Measure Code Execution Time in Android",
     excerpt: "Learn how to measure the execution time of code blocks in Android using SystemClock, Logcat, and benchmarking libraries for performance optimization.",
     date: "2024",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXZlbG9wbWVudHxlbnwxfHx8fDE3Nzg4NzYxMTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    image: myLogo,
     category: "Android,Kotlin, Performance",
     url: "https://medium.com/@valentinerutto/measure-code-execution-time-in-kotlin-0d308a246616"
   }
@@ -80,7 +81,14 @@ export function Blog() {
                     height="200"
                     image={post.image}
                     alt={post.title}
-                    sx={{ transition: 'transform 0.5s ease' }}
+                    sx={{
+                      height: 200,
+                      objectFit: 'contain',
+                      objectPosition: 'center',
+                      bgcolor: 'white',
+                      p: 3,
+                      transition: 'transform 0.5s ease'
+                    }}
                   />
                   <Chip 
                     label={post.category} 
