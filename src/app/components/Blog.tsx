@@ -17,7 +17,8 @@ const blogPosts = [
     excerpt: "A deep dive into reducing bundle size, utilizing the new architecture, and maximizing frame rates.",
     date: "April 28, 2026",
     image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2RlJTIwc2NyZWVufGVufDF8fHx8MTc3ODk1Mzc5Nnww&ixlib=rb-4.1.0&q=80&w=1080",
-    category: "React Native"
+    category: "React Native",
+    url: "https://medium.com/proandroiddev/seamless-camera-and-media-access-on-android-14-and-legacy-versions-543d86ac5939"
   },
   {
     title: "Designing for Accessibility First",
