@@ -4,14 +4,14 @@ import { motion } from 'motion/react';
 import { Code, Storage, Speed, Security, PhoneAndroid, Apple, IntegrationInstructions, DeveloperMode } from '@mui/icons-material';
 
 const skillsData = [
-  { name: "React Native", icon: <PhoneAndroid />, level: 95 },
-  { name: "Flutter / Dart", icon: <DeveloperMode />, level: 90 },
-  { name: "iOS / Swift", icon: <Apple />, level: 85 },
-  { name: "Android / Kotlin", icon: <PhoneAndroid />, level: 88 },
-  { name: "TypeScript", icon: <Code />, level: 92 },
-  { name: "State Mgt (Redux/MobX)", icon: <Storage />, level: 90 },
-  { name: "CI/CD & DevOps", icon: <IntegrationInstructions />, level: 85 },
-  { name: "App Security & Perf.", icon: <Security />, level: 95 },
+ // { name: "React Native", icon: <PhoneAndroid />, level: 95 },
+  { name: "Flutter / Dart", icon: <DeveloperMode />, level: 100 },
+//  { name: "iOS / Swift", icon: <Apple />, level: 85 },
+  { name: "Android / Kotlin", icon: <PhoneAndroid />, level: 100 },
+//  { name: "TypeScript", icon: <Code />, level: 92 },
+//  { name: "State Mgt (Redux/MobX)", icon: <Storage />, level: 90 },
+  { name: "CI/CD & DevOps", icon: <IntegrationInstructions />, level: 100 },
+  { name: "App Security & Perf.", icon: <Security />, level: 100 },
 ];
 
 export function Skills() {
