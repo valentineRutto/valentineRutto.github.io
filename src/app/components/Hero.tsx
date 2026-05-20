@@ -66,9 +66,9 @@ export function Hero() {
             
             <motion.div variants={itemVariants}>
               <Typography variant="h1" sx={{ fontSize: { xs: '3rem', md: '5rem' }, mb: 3, lineHeight: 1.1 }}>
-                Building Mobile Experiences for a{' '}
+                Building calm, resilient mobile products for{' '}
                 <Box component="span" sx={{ color: 'primary.main' }}>
-                  Global Audience.
+                  real-world scale.
                 </Box>
               </Typography>
             </motion.div>
