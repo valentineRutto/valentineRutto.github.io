@@ -75,7 +75,7 @@ export function Hero() {
 
             <motion.div variants={itemVariants}>
               <Typography variant="h6" color="text.secondary" sx={{ mb: 5, maxWidth: 600, fontWeight: 400, lineHeight: 1.6 }}>
-                Hi, I'm Valentine Rutto. With 8+ years of technical experience, I architect, design, and develop scalable mobile applications that users love. Recognized as top global talent in mobile engineering.
+                Hi, I'm Valentine Rutto. With 8+ years of technical experience, I design and ship Android and cross-platform systems with offline-first data, smooth UI architecture, reliable delivery pipelines, and thoughtful product craft.
               </Typography>
             </motion.div>
 
