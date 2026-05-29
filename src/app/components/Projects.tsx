@@ -25,10 +25,10 @@ const projects = [
     github: "https://github.com/valentineRutto/RickandMortyLocationExplorer"
   },
   {
-    title: "Zen Timer App",
+    title: "Zen Timer App and Chrome Extension",
     description: "An ambient Pomodoro style countdown and count up timer with relaxing sounds and customizable themes. Lets users add the focus tasks, and set work intervals , select focus music.",
     image: zen,
-    tags: ["TypeScript", "VibeCoded","Gemini", "AI"],
+    tags: ["TypeScript","web audio"],
     live: "https://zen-timer-focus.vercel.app/",
     github: "https://github.com/valentineRutto/ZenTimer"
   }
