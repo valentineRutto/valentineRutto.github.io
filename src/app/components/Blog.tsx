@@ -1,10 +1,31 @@
 import React from 'react';
-import { Box, Container, Typography, Card, CardContent, CardMedia, Chip, Button, Stack } from '@mui/material';
+import {
+  Box,
+  Container,
+  Typography,
+  Card,
+  CardContent,
+  CardMedia,
+  Chip,
+  Button,
+  Tab,
+  Tabs
+} from '@mui/material';
 import { motion } from 'motion/react';
 import { ArrowForward } from '@mui/icons-material';
 import myLogo from '../../imports/mylogo.jpeg';
 
-const blogPosts = [
+type ContentItem = {
+  title: string;
+  excerpt: string;
+  date: string;
+  image: string;
+  category: string;
+  url: string;
+  cta?: string;
+};
+
+const articles: ContentItem[] = [
   {
     title: "Effective Search in RoomDB: FTS vs LIKE",
     excerpt: "Comparing the performance and use cases of Full-Text Search (FTS) and LIKE queries in RoomDB for Android development.",
@@ -28,10 +49,13 @@ const blogPosts = [
     image: myLogo,
     category: "Android,Kotlin, Performance",
     url: "https://medium.com/@valentinerutto/measure-code-execution-time-in-kotlin-0d308a246616"
-  },
+  }
+];
+
+const talksAndSlides: ContentItem[] = [
   {
     title: "Android Talks Through the Years",
-    excerpt: "Browse my Speaker Deck collection featuring Android talks and slide decks from events and meetups through the years.",
+    excerpt: "Browse my Speaker Deck collection featuring Android talks and slide decks from events and meetups through the years, covering design patterns, architecture, security, SOLID principles, performance, and modern Android development practices.",
     date: "Speaker Deck",
     image: myLogo,
     category: "Android, Talks, Slides",
@@ -40,7 +64,30 @@ const blogPosts = [
   }
 ];
 
+const videosAndPodcasts: ContentItem[] = [];
+
+const contentSections = [
+  {
+    title: "Articles",
+    description: "Written tutorials and technical notes on Android, Kotlin, performance, and architecture.",
+    items: articles
+  },
+  {
+    title: "Talks / Slides",
+    description: "Presentation decks and talks from events, meetups, and community sessions.",
+    items: talksAndSlides
+  },
+  {
+    title: "Videos / Podcasts",
+    description: "Recorded conversations, video sessions, and podcast appearances.",
+    items: videosAndPodcasts
+  }
+];
+
 export function Blog() {
+  const [activeTab, setActiveTab] = React.useState(0);
+  const activeSection = contentSections[activeTab];
+
   return (
     <Box id="blog" component="section" sx={{ py: { xs: 10, md: 16 }, bgcolor: 'rgba(255,255,255,0.01)' }}>
       <Container maxWidth="lg">
@@ -60,79 +107,139 @@ export function Blog() {
           </Box>
         </motion.div>
 
-        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' }, gap: 4 }}>
-          {blogPosts.map((post, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5 }}
+        >
+          <Box>
+            <Box
+              sx={{
+                borderBottom: '1px solid',
+                borderColor: 'divider',
+                mb: 3,
+                overflowX: 'auto'
+              }}
             >
-              <Card sx={{ 
-                height: '100%', 
-                display: 'flex', 
-                flexDirection: 'column',
-                bgcolor: 'background.paper',
-                transition: 'transform 0.3s ease, border-color 0.3s ease',
-                '&:hover': {
-                  transform: 'translateY(-8px)',
-                  borderColor: 'primary.main',
-                  '& .blog-image': {
-                    transform: 'scale(1.05)'
+              <Tabs
+                value={activeTab}
+                onChange={(_, value) => setActiveTab(value)}
+                variant="scrollable"
+                scrollButtons="auto"
+                aria-label="Content sections"
+                sx={{
+                  minHeight: 48,
+                  '& .MuiTab-root': {
+                    minHeight: 48,
+                    textTransform: 'none',
+                    fontWeight: 700,
+                    color: 'text.secondary',
+                    px: { xs: 2, sm: 3 }
+                  },
+                  '& .Mui-selected': {
+                    color: 'primary.main'
                   }
-                }
-              }}>
-                <Box sx={{ overflow: 'hidden', height: 200, position: 'relative' }}>
-                  <CardMedia
-                    className="blog-image"
-                    component="img"
-                    height="200"
-                    image={post.image}
-                    alt={post.title}
-                    sx={{
-                      height: 200,
-                      objectFit: 'contain',
-                      objectPosition: 'center',
-                      bgcolor: 'white',
-                      p: 3,
-                      transition: 'transform 0.5s ease'
-                    }}
-                  />
-                  <Chip 
-                    label={post.category} 
-                    color="primary" 
-                    size="small" 
-                    sx={{ position: 'absolute', top: 16, right: 16, fontWeight: 600 }} 
-                  />
-                </Box>
-                <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', p: 3 }}>
-                  <Typography variant="caption" color="text.secondary" sx={{ mb: 1, display: 'block', fontWeight: 600 }}>
-                    {post.date}
-                  </Typography>
-                  <Typography variant="h5" component="h3" gutterBottom fontWeight={700}>
-                    {post.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary" sx={{ mb: 3, flexGrow: 1, lineHeight: 1.6 }}>
-                    {post.excerpt}
-                  </Typography>
-                  <Button 
-                    variant="text" 
-                    component={post.url ? 'a' : 'button'}
-                    href={post.url}
-                    target={post.url ? '_blank' : undefined}
-                    rel={post.url ? 'noopener noreferrer' : undefined}
-                    disabled={!post.url}
-                    endIcon={<ArrowForward />} 
-                    sx={{ alignSelf: 'flex-start', px: 0, '&:hover': { bgcolor: 'transparent', color: 'primary.light' } }}
+                }}
+              >
+                {contentSections.map((section) => (
+                  <Tab key={section.title} label={section.title} />
+                ))}
+              </Tabs>
+            </Box>
+
+            <Box sx={{ mb: 2.5 }}>
+              <Typography variant="h4" component="h3" fontWeight={700} sx={{ mb: 1 }}>
+                {activeSection.title}
+              </Typography>
+              <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 720, lineHeight: 1.7 }}>
+                {activeSection.description}
+              </Typography>
+            </Box>
+
+            {activeSection.items.length > 0 ? (
+              <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' }, gap: 4 }}>
+                {activeSection.items.map((post, index) => (
+                  <motion.div
+                    key={post.title}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.5, delay: index * 0.15 }}
                   >
-                    {post.cta ?? 'Read Article'}
-                  </Button>
-                </CardContent>
+                    <Card sx={{
+                      height: '100%',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      bgcolor: 'background.paper',
+                      transition: 'transform 0.3s ease, border-color 0.3s ease',
+                      '&:hover': {
+                        transform: 'translateY(-8px)',
+                        borderColor: 'primary.main',
+                        '& .blog-image': {
+                          transform: 'scale(1.05)'
+                        }
+                      }
+                    }}>
+                      <Box sx={{ overflow: 'hidden', height: 200, position: 'relative' }}>
+                        <CardMedia
+                          className="blog-image"
+                          component="img"
+                          height="200"
+                          image={post.image}
+                          alt={post.title}
+                          sx={{
+                            height: 200,
+                            objectFit: 'contain',
+                            objectPosition: 'center',
+                            bgcolor: 'white',
+                            p: 3,
+                            transition: 'transform 0.5s ease'
+                          }}
+                        />
+                        <Chip
+                          label={post.category}
+                          color="primary"
+                          size="small"
+                          sx={{ position: 'absolute', top: 16, right: 16, fontWeight: 600 }}
+                        />
+                      </Box>
+                      <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', p: 3 }}>
+                        <Typography variant="caption" color="text.secondary" sx={{ mb: 1, display: 'block', fontWeight: 600 }}>
+                          {post.date}
+                        </Typography>
+                        <Typography variant="h5" component="h3" gutterBottom fontWeight={700}>
+                          {post.title}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary" sx={{ mb: 3, flexGrow: 1, lineHeight: 1.6 }}>
+                          {post.excerpt}
+                        </Typography>
+                        <Button
+                          variant="text"
+                          component={post.url ? 'a' : 'button'}
+                          href={post.url}
+                          target={post.url ? '_blank' : undefined}
+                          rel={post.url ? 'noopener noreferrer' : undefined}
+                          disabled={!post.url}
+                          endIcon={<ArrowForward />}
+                          sx={{ alignSelf: 'flex-start', px: 0, '&:hover': { bgcolor: 'transparent', color: 'primary.light' } }}
+                        >
+                          {post.cta ?? 'Read'}
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                ))}
+              </Box>
+            ) : (
+              <Card sx={{ bgcolor: 'background.paper', p: 3 }}>
+                <Typography variant="body2" color="text.secondary">
+                  Coming soon.
+                </Typography>
               </Card>
-            </motion.div>
-          ))}
-        </Box>
+            )}
+          </Box>
+        </motion.div>
       </Container>
     </Box>
   );
