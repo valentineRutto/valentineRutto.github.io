@@ -28,6 +28,15 @@ const blogPosts = [
     image: myLogo,
     category: "Android,Kotlin, Performance",
     url: "https://medium.com/@valentinerutto/measure-code-execution-time-in-kotlin-0d308a246616"
+  },
+  {
+    title: "Android Talks Through the Years",
+    excerpt: "Browse my Speaker Deck collection featuring Android talks and slide decks from events and meetups through the years.",
+    date: "Speaker Deck",
+    image: myLogo,
+    category: "Android, Talks, Slides",
+    url: "https://speakerdeck.com/valentinerutto",
+    cta: "View Decks"
   }
 ];
 
@@ -117,7 +126,7 @@ export function Blog() {
                     endIcon={<ArrowForward />} 
                     sx={{ alignSelf: 'flex-start', px: 0, '&:hover': { bgcolor: 'transparent', color: 'primary.light' } }}
                   >
-                    Read Article
+                    {post.cta ?? 'Read Article'}
                   </Button>
                 </CardContent>
               </Card>
