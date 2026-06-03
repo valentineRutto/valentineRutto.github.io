@@ -12,7 +12,7 @@ import {
   Tabs
 } from '@mui/material';
 import { motion } from 'motion/react';
-import { ArrowForward } from '@mui/icons-material';
+import { ArrowForward, PlayCircleOutline } from '@mui/icons-material';
 import myLogo from '../../imports/mylogo.jpeg';
 
 type ContentItem = {
@@ -64,7 +64,35 @@ const talksAndSlides: ContentItem[] = [
   }
 ];
 
-const videosAndPodcasts: ContentItem[] = [];
+const videosAndPodcasts: ContentItem[] = [
+  {
+    title: "Android & UI/UX",
+    excerpt: "A video session exploring Android development and UI/UX considerations for building thoughtful mobile experiences.",
+    date: "YouTube",
+    image: myLogo,
+    category: "Android, UI/UX",
+    url: "https://www.youtube.com/watch?v=5Y-xAKzHdEs",
+    cta: "Watch"
+  },
+  {
+    title: "Developer Stories",
+    excerpt: "A developer-focused conversation sharing stories, lessons, and perspectives from the software development journey.",
+    date: "YouTube",
+    image: myLogo,
+    category: "Developer Stories",
+    url: "https://www.youtube.com/watch?v=8SZsYEqQ9fs",
+    cta: "Watch"
+  },
+  {
+    title: "Material Design & Android Libraries",
+    excerpt: "A video covering Material Design and Android libraries for building modern, consistent Android applications.",
+    date: "YouTube",
+    image: myLogo,
+    category: "Material Design, Android Libraries",
+    url: "https://www.youtube.com/watch?v=OaQ9xva1t8U",
+    cta: "Watch"
+  }
+];
 
 const contentSections = [
   {
@@ -221,7 +249,7 @@ export function Blog() {
                           target={post.url ? '_blank' : undefined}
                           rel={post.url ? 'noopener noreferrer' : undefined}
                           disabled={!post.url}
-                          endIcon={<ArrowForward />}
+                          endIcon={post.cta === 'Watch' ? <PlayCircleOutline /> : <ArrowForward />}
                           sx={{ alignSelf: 'flex-start', px: 0, '&:hover': { bgcolor: 'transparent', color: 'primary.light' } }}
                         >
                           {post.cta ?? 'Read'}
