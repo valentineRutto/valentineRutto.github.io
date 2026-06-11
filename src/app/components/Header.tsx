@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { 
   AppBar, Toolbar, Typography, Button, Box, Container, IconButton, useScrollTrigger,
-  Dialog, DialogTitle, DialogContent, DialogActions, TextField, Stack, Drawer, List, ListItem, ListItemButton, ListItemText 
+  Dialog, DialogTitle, DialogContent, DialogActions, TextField, Stack, Drawer, List, ListItem, ListItemButton, ListItemText,
+  Alert, CircularProgress
 } from '@mui/material';
 import { Menu as MenuIcon, Close as CloseIcon } from '@mui/icons-material';
 
@@ -30,6 +31,8 @@ export function Header() {
   const [email, setEmail] = useState('');
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
+  const [formStatus, setFormStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [isSending, setIsSending] = useState(false);
 
   const navItems = [
     { label: 'Experience', id: 'experience' },
@@ -42,17 +45,68 @@ export function Header() {
     setMobileOpen((prevState) => !prevState);
   };
 
-  const handleSendMessage = () => {
-    const mailtoSubject = encodeURIComponent(subject || 'New Inquiry from Portfolio');
-    const mailtoBody = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-    
-    window.location.href = `mailto:vruttoapps@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
-    
-    setIsHireMeOpen(false);
+  const resetContactForm = () => {
     setName('');
     setEmail('');
     setSubject('');
     setMessage('');
+    setFormStatus('idle');
+    setIsSending(false);
+  };
+
+  const closeHireMeDialog = () => {
+    setIsHireMeOpen(false);
+    resetContactForm();
+  };
+
+  const submitContactMessage = async (signal: AbortSignal) => {
+    const formData = new FormData();
+    formData.append('name', name.trim());
+    formData.append('email', email.trim());
+    formData.append('subject', subject.trim() || 'New Inquiry from Portfolio');
+    formData.append('message', message.trim());
+    formData.append('_captcha', 'false');
+    formData.append('_template', 'table');
+
+    const response = await fetch('https://formsubmit.co/ajax/vruttoapps@gmail.com', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+      },
+      body: formData,
+      signal,
+    });
+
+    if (!response.ok) {
+      throw new Error('Unable to send message');
+    }
+  };
+
+  const handleSendMessage = async () => {
+    if (isSending) return;
+
+    setIsSending(true);
+    setFormStatus('idle');
+
+    const controller = new AbortController();
+    const timeoutId = window.setTimeout(() => {
+      controller.abort();
+    }, CONTACT_FORM_TIMEOUT_MS);
+
+    try {
+      await submitContactMessage(controller.signal);
+
+      setFormStatus('success');
+      setName('');
+      setEmail('');
+      setSubject('');
+      setMessage('');
+    } catch {
+      setFormStatus('error');
+    } finally {
+      window.clearTimeout(timeoutId);
+      setIsSending(false);
+    }
   };
 
   const scrollToSection = (id: string) => {
@@ -171,7 +225,7 @@ export function Header() {
 
       <Dialog 
         open={isHireMeOpen} 
-        onClose={() => setIsHireMeOpen(false)}
+        onClose={closeHireMeDialog}
         maxWidth="sm"
         fullWidth
         PaperProps={{
@@ -184,12 +238,22 @@ export function Header() {
       >
         <DialogTitle component="div" sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <Typography variant="h5" component="span" fontWeight={700}>Let's Work Together</Typography>
-          <IconButton onClick={() => setIsHireMeOpen(false)} size="small">
+          <IconButton onClick={closeHireMeDialog} size="small">
             <CloseIcon />
           </IconButton>
         </DialogTitle>
         <DialogContent dividers sx={{ borderColor: 'rgba(255,255,255,0.05)' }}>
           <Stack spacing={3} sx={{ mt: 1 }}>
+            {formStatus === 'success' && (
+              <Alert severity="success">
+                Your message has been recieved i will be intouch soon.
+              </Alert>
+            )}
+            {formStatus === 'error' && (
+              <Alert severity="error">
+                Sorry, something went wrong while sending your message. Please try again.
+              </Alert>
+            )}
             <TextField
               autoFocus
               label="Name"
@@ -201,6 +265,7 @@ export function Header() {
             <TextField
               label="Email Address"
               type="email"
+              required
               fullWidth
               variant="outlined"
               value={email}
@@ -215,6 +280,7 @@ export function Header() {
             />
             <TextField
               label="Message"
+              required
               fullWidth
               multiline
               rows={4}
@@ -225,14 +291,22 @@ export function Header() {
           </Stack>
         </DialogContent>
         <DialogActions sx={{ p: 3 }}>
-          <Button onClick={() => setIsHireMeOpen(false)} color="inherit">
+          <Button onClick={closeHireMeDialog} color="inherit">
             Cancel
           </Button>
-          <Button variant="contained" color="primary" onClick={handleSendMessage} disabled={!name || !message}>
-            Send Message
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleSendMessage}
+            disabled={!name || !email || !message || isSending}
+            startIcon={isSending ? <CircularProgress color="inherit" size={16} /> : undefined}
+          >
+            {isSending ? 'Sending...' : 'Send Message'}
           </Button>
         </DialogActions>
       </Dialog>
     </>
   );
 }
+
+const CONTACT_FORM_TIMEOUT_MS = 10_000;
