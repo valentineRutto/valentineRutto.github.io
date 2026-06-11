@@ -246,7 +246,7 @@ export function Header() {
           <Stack spacing={3} sx={{ mt: 1 }}>
             {formStatus === 'success' && (
               <Alert severity="success">
-                Your message has been recieved i will be intouch soon.
+                Your message has been recieved. I will be intouch soon.
               </Alert>
             )}
             {formStatus === 'error' && (

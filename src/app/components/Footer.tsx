@@ -48,7 +48,7 @@ export function Footer() {
           </Stack>
         </Stack>
         <Typography variant="body2" color="text.secondary" align="center" sx={{ mt: 8, opacity: 0.6 }}>
-          © {new Date().getFullYear()} Valentine Rutto. All rights reserved.
+          © {new Date().getFullYear()} Valentine Rutto. All rights reserved. 2026
         </Typography>
       </Container>
     </Box>
