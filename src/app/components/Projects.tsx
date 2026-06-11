@@ -5,6 +5,7 @@ import { OpenInNew, GitHub } from '@mui/icons-material';
 import divine from '../../imports/divine.png';
 import zen from '../../imports/zen.png';
 import rick from '../../imports/rick.png';
+import offlineCountryPicker from '../../imports/offline-country-picker.png';
 
 
 const projects = [
@@ -31,6 +32,13 @@ const projects = [
     tags: ["TypeScript","web audio"],
     live: "https://zen-timer-focus.vercel.app/",
     github: "https://github.com/valentineRutto/ZenTimer"
+  }, {
+    title: "Offline country picker library",
+    description: "A Jetpack Compose Android library for fully offline country selection, supporting searchable country names, country codes, phone codes, currencies, languages, and capitals with customizable UI and efficient performance.",
+    image: offlineCountryPicker,
+    tags: ["Android library","jetpack compose","kotlin","offline first"],
+    live: "https://central.sonatype.com/artifact/io.github.valentinerutto/offline-country-picker/overview",
+    github: "https://github.com/valentineRutto/OfflineCountryPicker/tree/main?tab=readme-ov-file"
   }
 ];
 
