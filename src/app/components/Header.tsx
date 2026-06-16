@@ -5,6 +5,7 @@ import {
   Alert, CircularProgress
 } from '@mui/material';
 import { Menu as MenuIcon, Close as CloseIcon } from '@mui/icons-material';
+import myLogo from '../../imports/mylogo.jpeg';
 
 function ElevationScroll(props: { children: React.ReactElement }) {
   const { children } = props;
@@ -141,14 +142,33 @@ export function Header() {
         <AppBar position="fixed" color="transparent" sx={{ boxShadow: 0 }}>
           <Container maxWidth="lg">
             <Toolbar disableGutters sx={{ minHeight: '80px !important' }}>
-              <Typography
-                variant="h6"
-                component="div"
-                sx={{ flexGrow: 1, fontWeight: 800, letterSpacing: '-0.05em', cursor: 'pointer' }}
+              <Box
+                component="button"
+                aria-label="Back to top"
+                sx={{
+                  flexGrow: 1,
+                  display: 'flex',
+                  alignItems: 'center',
+                  p: 0,
+                  border: 0,
+                  bgcolor: 'transparent',
+                  cursor: 'pointer',
+                }}
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               >
-                VR<Box component="span" sx={{ color: 'primary.main' }}>.</Box>
-              </Typography>
+                <Box
+                  component="img"
+                  src={myLogo}
+                  alt="Valentine Rutto"
+                  sx={{
+                    width: 48,
+                    height: 48,
+                    borderRadius: '50%',
+                    objectFit: 'cover',
+                    display: 'block',
+                  }}
+                />
+              </Box>
 
               <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2 }}>
                 {navItems.map((item) => (
