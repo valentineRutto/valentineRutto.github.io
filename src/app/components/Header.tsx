@@ -7,6 +7,15 @@ import {
 import { Menu as MenuIcon, Close as CloseIcon } from '@mui/icons-material';
 import myLogo from '../../imports/mylogo.jpeg';
 
+const HEADER_OFFSET = 80;
+const SECTION_URL_OFFSET = HEADER_OFFSET + 120;
+const navItems = [
+  { label: 'Experience', id: 'experience', href: '#experience' },
+  { label: 'Projects', id: 'projects', href: '#projects' },
+  { label: 'Skills', id: 'skills', href: '#skills' },
+  { label: 'Writing & Community', id: 'blog', href: '#blog' }
+];
+
 function ElevationScroll(props: { children: React.ReactElement }) {
   const { children } = props;
   const trigger = useScrollTrigger({
@@ -34,13 +43,7 @@ export function Header() {
   const [message, setMessage] = useState('');
   const [formStatus, setFormStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [isSending, setIsSending] = useState(false);
-
-  const navItems = [
-    { label: 'Experience', id: 'experience', href: '#experience' },
-    { label: 'Projects', id: 'projects', href: '#projects' },
-    { label: 'Skills', id: 'skills', href: '#skills' },
-    { label: 'Writing & Community', id: 'blog', href: '#blog' }
-  ];
+  const [activeSection, setActiveSection] = useState('');
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -110,16 +113,29 @@ export function Header() {
     }
   };
 
+  const updateUrlHash = (id: string, replace = false) => {
+    const nextHash = `#${id}`;
+    if (window.location.hash === nextHash) return;
+
+    if (replace) {
+      window.history.replaceState(null, '', nextHash);
+      return;
+    }
+
+    window.history.pushState(null, '', nextHash);
+  };
+
   const scrollToSection = (id: string, updateUrl = true) => {
     const element = document.getElementById(id.toLowerCase());
     if (element) {
-      const headerOffset = 80;
       const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      const offsetPosition = elementPosition + window.pageYOffset - HEADER_OFFSET;
 
       if (updateUrl) {
-        window.history.pushState(null, '', `#${id}`);
+        updateUrlHash(id);
       }
+
+      setActiveSection(id);
   
       window.scrollTo({
         top: offsetPosition,
@@ -127,6 +143,39 @@ export function Header() {
       });
     }
   };
+
+  useEffect(() => {
+    let ticking = false;
+
+    const updateActiveSection = () => {
+      const scrollPosition = window.scrollY + SECTION_URL_OFFSET;
+      const activeItem = navItems.findLast((item) => {
+        const section = document.getElementById(item.id);
+        return section ? section.offsetTop <= scrollPosition : false;
+      });
+
+      if (activeItem) {
+        setActiveSection(activeItem.id);
+        updateUrlHash(activeItem.id, true);
+      }
+
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(updateActiveSection);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     if (window.location.hash) {
@@ -176,7 +225,17 @@ export function Header() {
                     key={item.id} 
                     component="a"
                     href={item.href}
-                    sx={{ color: 'text.secondary', '&:hover': { color: 'text.primary' } }}
+                    aria-current={activeSection === item.id ? 'page' : undefined}
+                    sx={{
+                      color: activeSection === item.id ? 'text.primary' : 'text.secondary',
+                      borderBottom: activeSection === item.id ? '2px solid' : '2px solid transparent',
+                      borderColor: activeSection === item.id ? 'primary.main' : 'transparent',
+                      borderRadius: 0,
+                      '&:hover': {
+                        color: 'text.primary',
+                        borderColor: activeSection === item.id ? 'primary.main' : 'rgba(255,255,255,0.35)',
+                      },
+                    }}
                     onClick={(event) => {
                       event.preventDefault();
                       scrollToSection(item.id);
@@ -236,12 +295,23 @@ export function Header() {
               <ListItemButton 
                 component="a"
                 href={item.href}
+                selected={activeSection === item.id}
                 onClick={(event) => {
                   event.preventDefault();
                   scrollToSection(item.id);
                   handleDrawerToggle();
                 }}
-                sx={{ borderRadius: 1, mb: 1 }}
+                sx={{
+                  borderRadius: 1,
+                  mb: 1,
+                  '&.Mui-selected': {
+                    bgcolor: 'rgba(99,102,241,0.16)',
+                    color: 'primary.main',
+                  },
+                  '&.Mui-selected:hover': {
+                    bgcolor: 'rgba(99,102,241,0.22)',
+                  },
+                }}
               >
                 <ListItemText primary={item.label} primaryTypographyProps={{ fontWeight: 500 }} />
               </ListItemButton>
