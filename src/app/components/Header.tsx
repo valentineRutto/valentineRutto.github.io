@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { 
   AppBar, Toolbar, Typography, Button, Box, Container, IconButton, useScrollTrigger,
   Dialog, DialogTitle, DialogContent, DialogActions, TextField, Stack, Drawer, List, ListItem, ListItemButton, ListItemText,
@@ -35,10 +35,10 @@ export function Header() {
   const [isSending, setIsSending] = useState(false);
 
   const navItems = [
-    { label: 'Experience', id: 'experience' },
-    { label: 'Projects', id: 'projects' },
-    { label: 'Skills', id: 'skills' },
-    { label: 'Writing & Community', id: 'blog' }
+    { label: 'Experience', id: 'experience', href: '#experience' },
+    { label: 'Projects', id: 'projects', href: '#projects' },
+    { label: 'Skills', id: 'skills', href: '#skills' },
+    { label: 'Writing & Community', id: 'blog', href: '#blog' }
   ];
 
   const handleDrawerToggle = () => {
@@ -109,12 +109,16 @@ export function Header() {
     }
   };
 
-  const scrollToSection = (id: string) => {
+  const scrollToSection = (id: string, updateUrl = true) => {
     const element = document.getElementById(id.toLowerCase());
     if (element) {
       const headerOffset = 80;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      if (updateUrl) {
+        window.history.pushState(null, '', `#${id}`);
+      }
   
       window.scrollTo({
         top: offsetPosition,
@@ -122,6 +126,14 @@ export function Header() {
       });
     }
   };
+
+  useEffect(() => {
+    if (window.location.hash) {
+      window.requestAnimationFrame(() => {
+        scrollToSection(window.location.hash.slice(1), false);
+      });
+    }
+  }, []);
 
   return (
     <>
@@ -142,8 +154,13 @@ export function Header() {
                 {navItems.map((item) => (
                   <Button 
                     key={item.id} 
+                    component="a"
+                    href={item.href}
                     sx={{ color: 'text.secondary', '&:hover': { color: 'text.primary' } }}
-                    onClick={() => scrollToSection(item.id)}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      scrollToSection(item.id);
+                    }}
                   >
                     {item.label}
                   </Button>
@@ -197,7 +214,10 @@ export function Header() {
           {navItems.map((item) => (
             <ListItem key={item.id} disablePadding>
               <ListItemButton 
-                onClick={() => {
+                component="a"
+                href={item.href}
+                onClick={(event) => {
+                  event.preventDefault();
                   scrollToSection(item.id);
                   handleDrawerToggle();
                 }}
