@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Container, Typography, IconButton, Stack } from '@mui/material';
-import { GitHub, LinkedIn, Email } from '@mui/icons-material';
+import { GitHub, LinkedIn, Email, Link as LinkIcon } from '@mui/icons-material';
 
 export function Footer() {
   return (
@@ -44,6 +44,16 @@ export function Footer() {
               href="mailto:vruttoapps@gmail.com"
             >
               <Email />
+            </IconButton>
+            <IconButton
+              color="inherit"
+              aria-label="Linktree"
+              component="a"
+              href="https://linktr.ee/ValentineRutto"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LinkIcon />
             </IconButton>
           </Stack>
         </Stack>
