@@ -5,6 +5,7 @@ import { OpenInNew, GitHub } from '@mui/icons-material';
 import divine from '../../imports/divine.png';
 import zen from '../../imports/zen.png';
 import rick from '../../imports/rick.png';
+import orbmotion from '../../imports/searching.gif';
 import offlineCountryPicker from '../../imports/offline-country-picker.png';
 
 type ProjectItem = {
@@ -43,6 +44,14 @@ const libraries: ProjectItem[] = [
     tags: ["Android library","jetpack compose","kotlin","offline first"],
     live: "https://central.sonatype.com/artifact/io.github.valentinerutto/offline-country-picker/overview",
     github: "https://github.com/valentineRutto/OfflineCountryPicker/tree/main?tab=readme-ov-file"
+  },
+    {
+    title: "OrbMotion KMP Library",
+    description: " OrbMotion is a Kotlin Multiplatform animation library for expressive AI and agent activity indicators, built with Compose Multiplatform for Android and iOS.",
+    image: orbmotion,
+    tags: ["KMP library","compose Multiplatform","kotlin","animation","AI activity indicators","agent activity indicators"],
+    live: "https://central.sonatype.com/artifact/io.github.valentinerutto/orbmotion",
+    github: "https://github.com/valentineRutto/OrbMotionKMPLibrary"
   }
 ];
 
