@@ -5,6 +5,7 @@ import { OpenInNew, GitHub } from '@mui/icons-material';
 import divine from '../../imports/divine.png';
 import zen from '../../imports/zen.png';
 import rick from '../../imports/rick.png';
+import majibu from '../../imports/majibuai.gif';
 import orbmotion from '../../imports/searching.gif';
 import offlineCountryPicker from '../../imports/offline-country-picker.png';
 
@@ -25,6 +26,14 @@ const apps: ProjectItem[] = [
     tags: ["Android", "Kotlin", "AI [Hugging Face]", "Jetpack Compose","Offline-First with RoomDB","FTS Search"],
     live: "#",
     github: "https://github.com/valentineRutto/DivineDataGPT"
+  },
+  {
+    title: "Majibu AI",
+    description: " An AI-powered study companion that helps you understand unfamiliar concepts, capture questions, and organize knowledge for later.",
+    image: majibu,
+    tags: ["Kotlin", "Compose", "On-Device AI","Cloud AI","Firebase AI Logic","OpenRouter API","Gemma Model"],
+    live: "#",
+    github: "https://github.com/valentineRutto/MajibuAI"
   },
   {
     title: "Rick and Morty Location Explorer",
